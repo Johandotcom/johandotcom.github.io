@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: johanthomasvarghese.com
+Token: e7c379793619df9aace9e0f2b5fc7b9079f38bcde03b47c1eee0d69038d377fc
