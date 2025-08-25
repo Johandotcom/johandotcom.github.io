@@ -99,6 +99,25 @@
       padding: 20px;
       line-height: 1.6;
     }
+      
+.movies-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* keeps tops aligned */
+  gap: 20px;
+  padding: 40px 20px;
+  flex-wrap: nowrap; /* stay side by side */
+}
+
+.movies-grid img {
+  height: 300px;   /* same height for both */
+  width: auto;     /* keeps original ratio */
+  border-radius: 12px;
+  object-fit: contain;
+}
+      
+      
+      
   </style>
     
    
@@ -230,7 +249,23 @@
 
   <h1>&nbsp;</h1>
   <h1>&nbsp;</h1>
+    
+<p>Couple of movies I worked on recently :)</p>
+<h1>&nbsp;</h1>
 
+<div class="movies-grid">
+  <a href="https://www.imdb.com/title/tt27441481/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_coolie" target="_blank">
+    <img src="assets/img/images.jpg" alt="Movie 1 Poster">
+  </a>
+  <a href="https://www.imdb.com/title/tt33037773/?ref_=nv_sr_srsg_0_tt_5_nm_3_in_0_q_sumath" target="_blank">
+    <img src="assets/img/MV5BYzY0MmI1NzctODFkNy00ZWQ0LTk3MWEtMDUxYWExOTcyOTMxXkEyXkFqcGc@._V1_FMjpg_UX1080_.jpg" alt="Movie 2 Poster">
+  </a>
+</div>
+  <h1>&nbsp;</h1>
+  <h1>&nbsp;</h1>  <h1>&nbsp;</h1>
+
+    
+  <h1>&nbsp;</h1>
   <!-- Credits -->
   <div class="credits" style="font-family: 'Roboto', sans-serif; font-size: 0.9em; text-align: center; line-height: 1.4;">
     <p>Everything here is made primarily with Blender. No AI has been used.</p>
@@ -244,6 +279,7 @@
       <a href="https://www.cgtrader.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">CGTrader</a>
     </p>
     <p>Textures from <a href="https://www.textures.com" target="_blank" style="color:white;text-decoration:none; font-weight: 400;">Textures.com</a></p>
+      <p>JTV3D@2025 <a href= target="_blank" style="color:grey;text-decoration:none; font-weight: 200;"></a></p>
   </div>
 
 </body>
