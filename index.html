@@ -20,6 +20,10 @@
     gtag('js', new Date());
     gtag('config', 'G-6H68H7FC7R');
   </script>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 
   <!-- Custom Styles -->
   <style>
@@ -31,14 +35,15 @@
 
     /* Base Styles */
     html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      font-family: monospace;
-      background: black;
-      color: white;
-      text-align: center;
-    }
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Pirata One', sans-serif;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
 
     /* Elements */
     img, video {
@@ -103,24 +108,38 @@
       padding: 20px;
       line-height: 1.6;
     }
-      
-.movies-grid {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* keeps tops aligned */
-  gap: 20px;
-  padding: 40px 20px;
-  flex-wrap: nowrap; /* stay side by side */
+ 
+    .movies-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.movies-grid img {
-  height: 300px;   /* same height for both */
-  width: auto;     /* keeps original ratio */
-  border-radius: 12px;
-  object-fit: contain;
+.movies-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
 }
-      
-      
+
+.movies-row.top {
+  justify-content: space-between;
+}
+
+.movies-row.bottom {
+  justify-content: center;
+}
+
+.movies-row img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movies-row img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+  
       
   </style>
     
@@ -147,7 +166,7 @@
 
   <div class="intro">
     <h1>Hey there!</h1>
-    <p>I am Johan, a small 3D generalist based in earth and I cook art :)</p>
+    <p>I cook art :)</p>
 
   
           
@@ -209,8 +228,8 @@
     <video loop preload="metadata" autoplay muted controls>
       <source src="assets/vid/MS_JTV_V1.mp4" type="video/mp4">
     </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/breakdown 1.mp4" type="video/mp4">
+         <video loop preload="metadata" autoplay muted controls>
+      <source src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4" type="video/mp4">
     </video>
        <video loop preload="metadata" autoplay muted controls>
       <source src="assets/vid/night wind20001-0250.mp4" type="video/mp4">
@@ -221,6 +240,10 @@
     <video loop preload="metadata" autoplay muted controls>
       <source src="assets/vid/Lamborghini Centenario _ Blender X.mp4" type="video/mp4">
     </video>
+      <video loop preload="metadata" autoplay muted controls>
+      <source src="assets/vid/breakdown 1.mp4" type="video/mp4">
+    </video>
+   
       
       
       
@@ -232,6 +255,9 @@
 <div class="video-container">
    <video loop preload="metadata" autoplay muted controls>
       <source src="assets/vid/PROJKT47_v1.mp4" type="video/mp4">
+    </video>
+    <video loop preload="metadata" autoplay muted controls>
+      <source src="assets/vid/idukkikochi_002_nc_19.0.24.mp4" type="video/mp4">
     </video>
     </div>
      <h1>&nbsp;</h1>
@@ -265,27 +291,55 @@
   <h1>&nbsp;</h1>
   <h1>&nbsp;</h1>
     
-<p>Couple of movies I worked on recently :)</p>
+<p>Couple of movies I worked on recently at IdentVFX as a 3D generalist :)</p>
 <h1>&nbsp;</h1>
 
-<div class="movies-grid">
-  <a href="https://www.imdb.com/title/tt27441481/?ref_=nv_sr_srsg_0_tt_7_nm_1_in_0_q_coolie" target="_blank">
-    <img src="assets/img/images.jpg" alt="Movie 1 Poster">
-  </a>
-  <a href="https://www.imdb.com/title/tt33037773/?ref_=nv_sr_srsg_0_tt_5_nm_3_in_0_q_sumath" target="_blank">
-    <img src="assets/img/MV5BYzY0MmI1NzctODFkNy00ZWQ0LTk3MWEtMDUxYWExOTcyOTMxXkEyXkFqcGc@._V1_FMjpg_UX1080_.jpg" alt="Movie 2 Poster">
-  </a>
+
+
+
+
+<div class="movies-wrapper">
+
+  <!-- Top row (3 movies) -->
+  <div class="movies-row top">
+    <a href="https://www.imdb.com/title/tt27441481/" target="_blank">
+      <img src="assets/img/coolie.png" alt="Coolie">
+    </a>
+    <a href="https://www.imdb.com/title/tt33037773/" target="_blank">
+      <img src="assets/img/SUMATHI VALAVU.png" alt="Sumathi Valavu">
+    </a>
+    <a href="https://www.imdb.com/title/tt33399641/" target="_blank">
+      <img src="assets/img/dheeram.png" alt="Dheeram">
+    </a>
+  </div>
+
+  <!-- Bottom row (2 centered movies) -->
+  <div class="movies-row bottom">
+    <a href="https://www.imdb.com/title/tt28551273/" target="_blank">
+      <img src="assets/img/bhabhaba.png" alt="Bhabhaba">
+    </a>
+    <a href="https://www.imdb.com/title/tt33014579/" target="_blank">
+      <img src="assets/img/Pongala.png" alt="pongala">
+    </a>
+  </div>
+
 </div>
+
+
+  
+
+
+
   <h1>&nbsp;</h1>
   <h1>&nbsp;</h1>  <h1>&nbsp;</h1>
 
     
   <h1>&nbsp;</h1>
   <!-- Credits -->
-  <div class="credits" style="font-family: 'Roboto', sans-serif; font-size: 0.9em; text-align: center; line-height: 1.4;">
-    <p>Everything here is made primarily with Blender. No AI has been used.</p>
+  <div class="credits" style="font-family: 'Pixelify Sans', sans-serif; font-size: 0.9em; text-align: center; line-height: 1.4;">
+    <p>Everything here is made primarily with Blender. No AI.</p>
     <p>This site is optimized and made for a laptop screen.</p>
-    <p>Almost everything here is a few years old, as I've been focusing more on freelancing and related jobs. :)</p>
+    <p>Almost everything here is a few years old, as I've been focusing more on freelancing and working fulltime jobs. :)</p>
     <p>Some assets used in the renders are from the following sources:</p>
     <p>
       <a href="https://sketchfab.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">Sketchfab</a>
