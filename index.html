@@ -171,6 +171,39 @@ img, video {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
+    
+    /* Brands */
+.brands-note {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 40px;
+  align-items: center;
+}
+
+.brands-grid img {
+  max-width: 140px;
+  margin: auto;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: 0.3s ease;
+}
+
+@media (hover: hover) {
+  .brands-grid img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: none;
+  }
+}
+
 
 /* Movies */
 .movies-row {
@@ -343,7 +376,28 @@ footer {
 </section>
 
 <!-- LIVE ACTION --> <section class="fade"> <div class="section-title">LIVE ACTION</div> <div class="video-grid"> <video autoplay muted loop playsinline controls src="assets/vid/PROJKT47_v1.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/idukkikochi_002_nc_19.0.24.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/noodles_18.7.46.mp4"></video> </div> </section> 
-    <!-- IMAGES --> <section class="fade"> <div class="section-title">STILL FRAMES</div> <div class="image-grid"> <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg"> <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg"> <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg"> <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg"> <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg"> <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg"> <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg"> <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg"> <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg"> <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg"> <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg"> <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg"> <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg"> <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg"> <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg"> <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg"> <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg"> <img src="assets/img/images1212.jpg"> <img src="assets/img/imimg.jpg"> </div> </section> <!-- FEATURE FILM --> <section class="fade"> <div class="section-title">FEATURE FILM VFX CREDS</div> <div class="movies-row"> <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a> <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a> <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a> <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a> <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a> </div> </section>
+    <!-- IMAGES --> <section class="fade"> <div class="section-title">STILL FRAMES</div> <div class="image-grid"> <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg"> <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg"> <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg"> <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg"> <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg"> <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg"> <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg"> <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg"> <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg"> <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg"> <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg"> <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg"> <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg"> <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg"> <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg"> <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg"> <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg"> <img src="assets/img/images1212.jpg"> <img src="assets/img/imimg.jpg"> </div> </section> 
+    
+    <!-- BRANDS CONTRIBUTED TO -->
+<section class="fade">
+  <div class="section-title">BRANDS CONTRIBUTED TO</div>
+
+  <p class="brands-note">
+    These brands were worked on as part of my role at previous studios and production teams.
+    Projects were executed collaboratively and some as direct freelance clients.
+  </p>
+
+  <div class="brands-grid">
+    <img src="assets/img/sony.png" alt="SONY">
+    <img src="assets/img/amazon.png" alt="amazon">
+      <img src="assets/img/TATA.png" alt="tata">
+      <img src="assets/img/SONATA.png" alt="Sonata">
+      <img src="assets/img/MOUVAL.png" alt="MOUVAL">
+  </div>
+</section>
+
+    
+    <!-- FEATURE FILM --> <section class="fade"> <div class="section-title">FEATURE FILM VFX CREDS</div> <div class="movies-row"> <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a> <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a> <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a> <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a> <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a> </div> </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
