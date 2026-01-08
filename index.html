@@ -38,11 +38,9 @@ html, body {
   user-select: none;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-thumb { background: #fff; border-radius: 4px; }
 
-/* Vignette */
 body::before {
   content: "";
   position: fixed;
@@ -54,7 +52,6 @@ body::before {
   z-index: 5;
 }
 
-/* Film Grain */
 .grain {
   position: fixed;
   inset: -150%;
@@ -71,7 +68,7 @@ body::before {
   100% { transform: translate(0,0); }
 }
 
-/* Hero */
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -130,7 +127,7 @@ body::before {
   color: #aaa;
 }
 
-/* Sections */
+/* SECTIONS */
 section {
   max-width: 1400px;
   margin: auto;
@@ -144,7 +141,7 @@ section {
   margin-bottom: 22px;
 }
 
-/* Media */
+/* MEDIA */
 img, video {
   width: 100%;
   border-radius: 18px;
@@ -159,7 +156,7 @@ img, video {
   }
 }
 
-/* Grids */
+/* GRIDS */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -171,8 +168,45 @@ img, video {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
-    
-    /* Brands */
+
+/* VIDEO FOCUS */
+.video-card { cursor: pointer; }
+
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(16px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.video-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.video-focus {
+  transform: scale(0.92);
+  transition: transform 0.35s ease;
+}
+
+.video-overlay.active .video-focus {
+  transform: scale(1.15);
+}
+
+.video-focus video {
+  max-width: 72vw;
+  max-height: 72vh;
+  border-radius: 20px;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.75);
+}
+
+/* BRANDS */
 .brands-note {
   font-size: 0.8rem;
   opacity: 0.55;
@@ -195,17 +229,7 @@ img, video {
   transition: 0.3s ease;
 }
 
-@media (hover: hover) {
-  .brands-grid img:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    transform: scale(1.05);
-    box-shadow: none;
-  }
-}
-
-
-/* Movies */
+/* MOVIES */
 .movies-row {
   display: flex;
   flex-wrap: wrap;
@@ -215,7 +239,7 @@ img, video {
 
 .movies-row img { max-width: 220px; }
 
-/* Fade */
+/* FADE */
 .fade {
   opacity: 0;
   transform: translateY(40px);
@@ -227,7 +251,7 @@ img, video {
   transform: translateY(0);
 }
 
-/* ================= CONTACT (UPDATED) ================= */
+/* CONTACT */
 #contact {
   font-family: 'DM Sans', sans-serif;
   text-align: center;
@@ -271,11 +295,6 @@ img, video {
   min-height: 56px;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255,255,255,0.5);
-}
-
 .contact-form button {
   background: white;
   color: black;
@@ -285,16 +304,6 @@ img, video {
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.3s;
-}
-
-.contact-form button:hover {
-  background: rgba(255,255,255,0.8);
-}
-
-.form-status {
-  margin-top: 14px;
-  font-size: 0.8rem;
-  opacity: 0.7;
 }
 
 .contact-socials {
@@ -309,29 +318,9 @@ img, video {
 .contact-socials a {
   color: white;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.contact-socials a:hover {
-  opacity: 1;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  .contact-row {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-row:last-of-type {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form button {
-    padding: 14px;
-  }
-}
-
-/* Footer */
+/* FOOTER */
 footer {
   padding: 100px 20px;
   text-align: center;
@@ -350,7 +339,6 @@ footer {
   <h1 id="tiltTitle">JTV3D</h1>
   <p>Hi, I’m Johan</p>
   <p>Creative Director & 3D Generalist<br>Cinematic CGI · Product Films · VFX</p>
-
   <div class="hero-cta">
     <a href="#cgi">View Work</a>
     <a href="#contact" class="secondary">Contact</a>
@@ -361,44 +349,84 @@ footer {
 <section id="cgi" class="fade">
   <div class="section-title">CGI FILMS AND EXPERIMENTS</div>
   <div class="video-grid">
-    <video autoplay muted loop playsinline controls src="assets/vid/Rough cut.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/jtn_v1_8.24.51 - Trim.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/Blender Animation _ Test Footage.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/JIC_JTV_v1.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/CandM_JTV_v1.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/MS_JTV_V1.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/night wind20001-0250.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/Looked cool, I'll probably delete this later.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/Lamborghini Centenario _ Blender X.mp4"></video>
-    <video autoplay muted loop playsinline controls src="assets/vid/breakdown 1.mp4"></video>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Rough cut.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/jtn_v1_8.24.51 - Trim.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/JIC_JTV_v1.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/CandM_JTV_v1.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/MS_JTV_V1.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/night wind20001-0250.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Looked cool, I'll probably delete this later.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Lamborghini Centenario _ Blender X.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/breakdown 1.mp4"></video></div>
   </div>
 </section>
 
-<!-- LIVE ACTION --> <section class="fade"> <div class="section-title">LIVE ACTION</div> <div class="video-grid"> <video autoplay muted loop playsinline controls src="assets/vid/PROJKT47_v1.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/idukkikochi_002_nc_19.0.24.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/noodles_18.7.46.mp4"></video> </div> </section> 
-    <!-- IMAGES --> <section class="fade"> <div class="section-title">STILL FRAMES</div> <div class="image-grid"> <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg"> <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg"> <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg"> <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg"> <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg"> <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg"> <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg"> <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg"> <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg"> <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg"> <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg"> <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg"> <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg"> <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg"> <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg"> <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg"> <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg"> <img src="assets/img/images1212.jpg"> <img src="assets/img/imimg.jpg"> </div> </section> 
-    
-    <!-- BRANDS CONTRIBUTED TO -->
+<!-- LIVE ACTION -->
+<section class="fade">
+  <div class="section-title">LIVE ACTION</div>
+  <div class="video-grid">
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/PROJKT47_v1.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/idukkikochi_002_nc_19.0.24.mp4"></video></div>
+    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/noodles_18.7.46.mp4"></video></div>
+  </div>
+</section>
+
+<!-- STILL FRAMES -->
+<section class="fade">
+  <div class="section-title">STILL FRAMES</div>
+  <div class="image-grid">
+    <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg">
+    <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg">
+    <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg">
+    <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg">
+    <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg">
+    <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg">
+    <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg">
+    <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg">
+    <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg">
+    <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg">
+    <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg">
+    <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg">
+    <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg">
+    <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg">
+    <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg">
+    <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg">
+    <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg">
+    <img src="assets/img/images1212.jpg">
+    <img src="assets/img/imimg.jpg">
+  </div>
+</section>
+
+<!-- BRANDS -->
 <section class="fade">
   <div class="section-title">BRANDS CONTRIBUTED TO</div>
-
   <p class="brands-note">
     These brands were worked on as part of my role at previous studios and production teams.
     Projects were executed collaboratively and some as direct freelance clients.
   </p>
-
   <div class="brands-grid">
-    <img src="assets/img/sony.png" alt="SONY">
-    <img src="assets/img/amazon.png" alt="amazon">
-      <img src="assets/img/TATA.png" alt="tata">
-      <img src="assets/img/SONATA.png" alt="Sonata">
-      <img src="assets/img/MOUVAL.png" alt="MOUVAL">
-      <img src="assets/img/HYPER.png" alt="HYPERFENTON">
+    <img src="assets/img/sony.png">
+    <img src="assets/img/amazon.png">
+    <img src="assets/img/TATA.png">
+    <img src="assets/img/SONATA.png">
+    <img src="assets/img/MOUVAL.png">
+    <img src="assets/img/HYPER.png">
   </div>
 </section>
 
-    
-    <!-- FEATURE FILM --> <section class="fade"> <div class="section-title">FEATURE FILM VFX CREDS</div> <div class="movies-row"> <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a> <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a> <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a> <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a> <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a> </div> </section>
+<!-- FEATURE FILM -->
+<section class="fade">
+  <div class="section-title">FEATURE FILM VFX CREDS</div>
+  <div class="movies-row">
+    <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a>
+    <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a>
+    <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a>
+    <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a>
+    <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a>
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
@@ -435,16 +463,21 @@ footer {
   <p>© JTV3D 2026</p>
 </footer>
 
+<!-- VIDEO OVERLAY -->
+<div class="video-overlay" id="videoOverlay">
+  <div class="video-focus">
+    <video id="focusVideo" controls playsinline></video>
+  </div>
+</div>
+
 <script>
 /* Scroll fade */
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('visible');
-  });
+  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade').forEach(el => observer.observe(el));
 
-/* Tilt title */
+/* Tilt title (FIXED) */
 const title = document.getElementById('tiltTitle');
 document.addEventListener('mousemove', (e) => {
   const x = (window.innerWidth / 2 - e.clientX) / 35;
@@ -452,14 +485,13 @@ document.addEventListener('mousemove', (e) => {
   title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
-/* Formspree AJAX */
+/* Formspree */
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   status.textContent = "Sending…";
-
   const data = new FormData(form);
 
   try {
@@ -478,6 +510,40 @@ form.addEventListener("submit", async (e) => {
   } catch {
     status.textContent = "Network error.";
   }
+});
+
+/* Video focus */
+const overlay = document.getElementById("videoOverlay");
+const focusVideo = document.getElementById("focusVideo");
+
+document.querySelectorAll(".video-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const v = card.querySelector("video");
+    focusVideo.src = v.src;
+    overlay.style.display = "flex";
+    document.body.style.overflow = "hidden";
+
+    requestAnimationFrame(() => {
+      overlay.classList.add("active");
+      focusVideo.play();
+    });
+  });
+});
+
+function closeOverlay() {
+  overlay.classList.remove("active");
+  focusVideo.pause();
+  focusVideo.src = "";
+  document.body.style.overflow = "";
+  setTimeout(() => overlay.style.display = "none", 250);
+}
+
+overlay.addEventListener("click", e => {
+  if (e.target === overlay) closeOverlay();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeOverlay();
 });
 </script>
 
