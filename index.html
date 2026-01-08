@@ -1,361 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="https://jtv3d.com/assets/favicons/jtv-favicon.png">
-    <meta property="og:image" content="assets/favicons/jtv-favicon.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<title>Johan Thomas Varghese | JTV3D</title>
+<meta name="description" content="Creative Director & 3D Generalist crafting cinematic CGI, product films, and VFX." />
+<meta name="robots" content="index, follow">
 
-  
+<link rel="icon" href="assets/favicons/jtv-favicon.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/favicons/jtv-favicon.png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6H68H7FC7R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-6H68H7FC7R');
-  </script>
-<link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6H68H7FC7R"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-6H68H7FC7R');
+</script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-
-  <!-- Custom Styles -->
-  <style>
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: white; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #808080; }
-
-    /* Base Styles */
-    html, body {
+html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  font-family: 'Pirata One', sans-serif;
   background: black;
   color: white;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #fff; border-radius: 4px; }
+
+/* Vignette */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.65) 100%);
+  z-index: 5;
+}
+
+/* Film Grain */
+.grain {
+  position: fixed;
+  inset: -150%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  animation: grainMove 1.2s steps(2) infinite;
+  z-index: 6;
+}
+
+@keyframes grainMove {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(-5%,-5%); }
+  100% { transform: translate(0,0); }
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
+  padding: 0 20px;
 }
 
-
-    /* Elements */
-    img, video {
-      border-radius: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    img:hover, video:hover {
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-      transform: scale(1.02);
-    }
-
-    /* Layout */
-    .intro {
-      padding: 10% 20px 0;
-    }
-
-    .social-links a {
-      margin: 0 10px;
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .social-links img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-    }
-
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      padding: 40px 20px;
-    }
-
-    .video-container video {
-      width: 48%;
-      max-width: 600px;
-      height: auto;
-    }
-
-    .video-container.three-videos video {
-      width: 32%;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      justify-items: center;
-    }
-
-    .image-grid img {
-      width: 100%;
-      height: auto;
-    }
-
-    .credits {
-      font-size: 0.9em;
-      padding: 20px;
-      line-height: 1.6;
-    }
- 
-    .movies-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
+.hero h1 {
+  font-family: 'Tilt Warp', cursive;
+  font-size: clamp(4rem, 9vw, 7.8rem);
+  line-height: 0.95;
+  margin: 0;
+  transition: transform 0.15s ease-out;
 }
 
+.hero p:first-of-type {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.hero p:nth-of-type(2) {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* CTA */
+.hero-cta {
+  margin-top: 42px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-cta a {
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.hero-cta a:hover {
+  background: white;
+  color: black;
+}
+
+.hero-cta .secondary {
+  border-color: #555;
+  color: #aaa;
+}
+
+/* Sections */
+section {
+  max-width: 1400px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  letter-spacing: 5px;
+  opacity: 0.5;
+  margin-bottom: 22px;
+}
+
+/* Media */
+img, video {
+  width: 100%;
+  border-radius: 18px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  img:hover, video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(255,255,255,0.25);
+  }
+}
+
+/* Grids */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Movies */
 .movies-row {
   display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
-}
-
-.movies-row.top {
-  justify-content: space-between;
-}
-
-.movies-row.bottom {
+  flex-wrap: wrap;
+  gap: 24px;
   justify-content: center;
 }
 
-.movies-row img {
-  width: 100%;
-  max-width: 260px;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.movies-row img { max-width: 220px; }
+
+/* Fade */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
 }
 
-.movies-row img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-  
-      
-  </style>
-    
-   
-<title>Johan Thomas Varghese | 3D Artist and Designer | JTV3D</title>
 
-<meta name="description" content="Official portfolio of Johan Thomas Varghese, Creative Director and 3D Generalist specializing in CGI, VFX, and high-quality product visualization. Experience includes brand films, commercial CGI, mixed reality visuals, and feature film VFX, with contributions to large-scale brand projects and South Indian feature films. Focused on concept-to-delivery execution, efficient production workflows, and cinematic visual storytelling.">
+/* ================= CONTACT (UPDATED) ================= */
+#contact {
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+}
 
+.section-desc {
+  opacity: 0.65;
+  font-size: 0.95rem;
+  margin-bottom: 60px;
+}
 
-<meta name="robots" content="index, follow">
+.contact-form {
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
 
-<!-- Open Graph Meta Tags (for social sharing) -->
-<meta property="og:title" content="Johan Thomas Varghese | JTV3D Portfolio">
-<meta property="og:description" content="Showcasing the 3D design and creative works of Johan Thomas Varghese. Explore professional projects and collaborations.">
-<meta property="og:image" content="assets/favicons/jtv-favicon.png"> <!-- Replace with your actual image URL -->
-<meta property="og:url" content="https://jtv3d.com/">
-<meta property="og:type" content="website">
+.contact-row:last-of-type {
+  grid-template-columns: 1fr auto;
+}
 
-    
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 14px 16px;
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 56px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.contact-form button {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0 28px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.form-status {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+}
+
+.contact-socials a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact-socials a:hover {
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-row:last-of-type {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form button {
+    padding: 14px;
+  }
+}
+
+/* Footer */
+footer {
+  padding: 100px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+</style>
 </head>
 
-<body>
+<body oncontextmenu="return false">
 
-  <div class="intro">
-    <h1>Hey there!</h1>
-    <p>I cook art :)</p>
+<div class="grain"></div>
 
-  
-          
-      
-    <div class="social-links">
-      <a href="https://www.instagram.com/jtv3d/" target="_blank">
-        <img src="assets/img/icons8-instagram-384.png" alt="Instagram" style="height:60px;width:60px;">
-      </a>
-        
-        <a href="https://www.linkedin.com/in/johan-thomas-varghese-78896a2a8/" target="_blank">
-        <img src="assets/img/linkedin-logo-png-2048.png" alt="LINKEDIN" style="height:60px;width:60px;">
-      </a>
-          
-        
-      <a href="https://johanthomasvarghese.gumroad.com/" target="_blank">
-        <img src="assets/img/62c9d51e94890221ddd176a5.png" alt="Gumroad" style="height:60px;width:60px;">
-      </a>
-        
-      <a href="https://www.youtube.com/@jtv3d" target="_blank">
-        <img src="assets/img/icons8-youtube-logo-384.png" alt="YouTube" style="height:60px;width:60px;">
-      </a>
-        
-    </div>
+<!-- HERO -->
+<div class="hero fade">
+  <h1 id="tiltTitle">JTV3D</h1>
+  <p>Hi, I’m Johan</p>
+  <p>Creative Director & 3D Generalist<br>Cinematic CGI · Product Films · VFX</p>
 
-    <h1>&nbsp;</h1>
-    <h1>&nbsp;</h1>
+  <div class="hero-cta">
+    <a href="#cgi">View Work</a>
+    <a href="#contact" class="secondary">Contact</a>
   </div>
-    
-       <h1>&nbsp;</h1>
-    <p>Renders</p>
-  <h1>&nbsp;</h1>
-
-  <!-- Videos -->
-  <div class="video-container">
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/Rough%20cut.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-      <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/jtn_v1_8.24.51 - Trim.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/Blender Animation _ Test Footage.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </div>
-
-  <h1>&nbsp;</h1>
-  <h1>&nbsp;</h1>
-
-  <div class="video-container three-videos">
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/JIC_JTV_v1.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/CandM_JTV_v1.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/MS_JTV_V1.mp4" type="video/mp4">
-    </video>
-         <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4" type="video/mp4">
-    </video>
-       <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/night wind20001-0250.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/Looked cool, I'll probably delete this later.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/Lamborghini Centenario _ Blender X.mp4" type="video/mp4">
-    </video>
-      <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/breakdown 1.mp4" type="video/mp4">
-    </video>
-   
-      
-      
-      
-  </div>
-
-  <h1>&nbsp;</h1>
-    <p>Live action stuff, more on the way</p>
-  <h1>&nbsp;</h1>
-<div class="video-container">
-   <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/PROJKT47_v1.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/idukkikochi_002_nc_19.0.24.mp4" type="video/mp4">
-    </video>
-    <video loop preload="metadata" autoplay muted controls>
-      <source src="assets/vid/noodles_18.7.46.mp4" type="video/mp4">
-    </video>
-    </div>
-     <h1>&nbsp;</h1>
-    <p>Image Renders</p>
-  <h1>&nbsp;</h1>
-    
-  <!-- Images -->
-  <div class="image-grid">
-    <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg" alt="">
-    <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg" alt="">
-    <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg" alt="">
-    <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg" alt="">
-    <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg" alt="">
-    <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg" alt="">
-    <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg" alt="">
-    <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg" alt="">
-    <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg" alt="">
-    <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg" alt="">
-    <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg" alt="">
-    <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg" alt="">
-    <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg" alt="">
-    <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg" alt="">
-    <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg" alt="">
-    <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg" alt="">
-    <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg" alt="">
-    <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg" alt="">
-       <img src="assets/img/images1212.jpg" alt="">
-    <img src="assets/img/imimg.jpg" alt="">
-  </div>
-
-  <h1>&nbsp;</h1>
-  <h1>&nbsp;</h1>
-    
-<p>Couple of movies I worked on recently at IdentVFX as a 3D generalist :)</p>
-<h1>&nbsp;</h1>
-
-
-
-
-
-<div class="movies-wrapper">
-
-  <!-- Top row (3 movies) -->
-  <div class="movies-row top">
-    <a href="https://www.imdb.com/title/tt27441481/" target="_blank">
-      <img src="assets/img/coolie.png" alt="Coolie">
-    </a>
-    <a href="https://www.imdb.com/title/tt33037773/" target="_blank">
-      <img src="assets/img/SUMATHI VALAVU.png" alt="Sumathi Valavu">
-    </a>
-    <a href="https://www.imdb.com/title/tt33399641/" target="_blank">
-      <img src="assets/img/dheeram.png" alt="Dheeram">
-    </a>
-  </div>
-
-  <!-- Bottom row (2 centered movies) -->
-  <div class="movies-row bottom">
-    <a href="https://www.imdb.com/title/tt28551273/" target="_blank">
-      <img src="assets/img/bhabhaba.png" alt="Bhabhaba">
-    </a>
-    <a href="https://www.imdb.com/title/tt33014579/" target="_blank">
-      <img src="assets/img/Pongala.png" alt="pongala">
-    </a>
-  </div>
-
 </div>
 
-
-  <!-- Elfsight Contact Form | Untitled Contact Form -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
-<div class="elfsight-app-7007cbbd-49e0-493e-8e20-45ab84507842" data-elfsight-app-lazy></div>
-
-
-
-  <h1>&nbsp;</h1>
-  <h1>&nbsp;</h1>  <h1>&nbsp;</h1>
-
-    
-  <h1>&nbsp;</h1>
-  <!-- Credits -->
-  <div class="credits" style="font-family: 'Pixelify Sans', sans-serif; font-size: 0.9em; text-align: center; line-height: 1.4;">
-    <p>Everything here is made primarily with Blender. No AI.</p>
-    <p>This site is optimized and made for a laptop screen.</p>
-    <p>Almost everything here is a few years old, as I've been focusing more on freelancing and working fulltime jobs. :)</p>
-    <p>Some assets used in the renders are from the following sources:</p>
-    <p>
-      <a href="https://sketchfab.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">Sketchfab</a>
-      <a href="https://www.turbosquid.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">TurboSquid</a>
-      <a href="https://free3d.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">Free3D</a>
-      <a href="https://www.cgtrader.com" target="_blank" style="color:white; text-decoration:none; margin: 0 12px; font-weight: 400;">CGTrader</a>
-    </p>
-    <p>Textures from <a href="https://www.textures.com" target="_blank" style="color:white;text-decoration:none; font-weight: 400;">Textures.com</a></p>
-      <p>JTV3D@2025 <a href= target="_blank" style="color:grey;text-decoration:none; font-weight: 200;"></a></p>
+<!-- CGI -->
+<section id="cgi" class="fade">
+  <div class="section-title">CGI FILMS AND EXPERIMENTS</div>
+  <div class="video-grid">
+    <video autoplay muted loop playsinline controls src="assets/vid/Rough cut.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/jtn_v1_8.24.51 - Trim.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/Blender Animation _ Test Footage.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/JIC_JTV_v1.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/CandM_JTV_v1.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/MS_JTV_V1.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/night wind20001-0250.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/Looked cool, I'll probably delete this later.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/Lamborghini Centenario _ Blender X.mp4"></video>
+    <video autoplay muted loop playsinline controls src="assets/vid/breakdown 1.mp4"></video>
   </div>
+</section>
+
+<!-- LIVE ACTION --> <section class="fade"> <div class="section-title">LIVE ACTION</div> <div class="video-grid"> <video autoplay muted loop playsinline controls src="assets/vid/PROJKT47_v1.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/idukkikochi_002_nc_19.0.24.mp4"></video> <video autoplay muted loop playsinline controls src="assets/vid/noodles_18.7.46.mp4"></video> </div> </section> 
+    <!-- IMAGES --> <section class="fade"> <div class="section-title">STILL FRAMES</div> <div class="image-grid"> <img src="assets/img/163339009_965948140844052_4826644879277953971_n.jpg"> <img src="assets/img/161700640_772581016715295_8008390603181198202_n.jpg"> <img src="assets/img/190943413_922087828357263_8894946032625078983_n.jpg"> <img src="assets/img/196844876_5919820551391662_2169086690721781004_n.jpg"> <img src="assets/img/192707782_310115954166307_4351896708117380095_n.jpg"> <img src="assets/img/173217116_5303883646352817_7046397795472876908_n.jpg"> <img src="assets/img/171592676_1238968129852433_4135473115041239051_n.jpg"> <img src="assets/img/131440753_825807468044832_835081486502664875_n.jpg"> <img src="assets/img/135815874_219251723082808_495564531755659197_n.jpg"> <img src="assets/img/135218175_192781142575003_4535580424091710435_n.jpg"> <img src="assets/img/131938490_214956320213311_1743224696154870309_n.jpg"> <img src="assets/img/132035656_1115785892172834_7944758869077962086_n.jpg"> <img src="assets/img/128408262_391748898712332_3792179824137694023_n.jpg"> <img src="assets/img/128444311_128857212170445_6499343369054887359_n.jpg"> <img src="assets/img/183622904_195183622302155_2661832005887141687_n.jpg"> <img src="assets/img/Snapinsta.app_1080_326387452_2058935254317805_6129465074582651553_n.jpg"> <img src="assets/img/133897472_202836451474340_2641167867691696595_n.jpg"> <img src="assets/img/images1212.jpg"> <img src="assets/img/imimg.jpg"> </div> </section> <!-- FEATURE FILM --> <section class="fade"> <div class="section-title">FEATURE FILM VFX CREDS</div> <div class="movies-row"> <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a> <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a> <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a> <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a> <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a> </div> </section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+  <div class="section-title">CONTACT</div>
+  <div class="section-desc">
+    Available for freelance, brand collaborations, and production work.
+  </div>
+
+  <form class="contact-form" id="contactForm">
+    <div class="contact-row">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+    </div>
+
+    <div class="contact-row">
+      <textarea name="message" placeholder="Tell me about your project" required></textarea>
+      <button type="submit">SEND</button>
+    </div>
+
+    <input type="text" name="_gotcha" style="display:none">
+    <p class="form-status" id="formStatus"></p>
+  </form>
+
+  <div class="contact-socials">
+    <a href="https://www.instagram.com/jtv3d/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/johan-thomas-varghese-78896a2a8/" target="_blank">LinkedIn</a>
+    <a href="https://johanthomasvarghese.gumroad.com/" target="_blank">Gumroad</a>
+    <a href="https://www.youtube.com/@jtv3d" target="_blank">YouTube</a>
+  </div>
+</section>
+
+<footer>
+  <p>Built with Blender. No AI.</p>
+  <p>© JTV3D 2025</p>
+</footer>
+
+<script>
+/* Scroll fade */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+/* Tilt title */
+const title = document.getElementById('tiltTitle');
+document.addEventListener('mousemove', (e) => {
+  const x = (window.innerWidth / 2 - e.clientX) / 35;
+  const y = (window.innerHeight / 2 - e.clientY) / 35;
+  title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
+/* Formspree AJAX */
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  status.textContent = "Sending…";
+
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch("https://formspree.io/f/xrebnook", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    });
+
+    if (res.ok) {
+      status.textContent = "Message sent.";
+      form.reset();
+    } else {
+      status.textContent = "Something went wrong.";
+    }
+  } catch {
+    status.textContent = "Network error.";
+  }
+});
+</script>
 
 </body>
 </html>
