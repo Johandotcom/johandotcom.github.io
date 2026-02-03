@@ -8,9 +8,23 @@
   <meta name="description" content="JTV3D — Cinematic CGI, Product Films & VFX. Site under construction." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <link rel="icon" href="assets/favicons/jtv-favicon.png">
+  <!-- ===============================
+       THEME-AWARE FAVICONS
+       =============================== -->
+  <link rel="icon" type="image/png"
+        href="assets/favicons/jtv-favicondark.png"
+        media="(prefers-color-scheme: dark)">
 
-  <!-- Fonts (FROM OLD SITE) -->
+  <link rel="icon" type="image/png"
+        href="assets/favicons/jtv-favicon.png"
+        media="(prefers-color-scheme: light)">
+
+  <link rel="icon" type="image/png"
+        href="assets/favicons/jtv-favicon.png">
+
+  <!-- ===============================
+       FONTS
+       =============================== -->
   <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
@@ -31,9 +45,6 @@
       overflow: hidden;
     }
 
-    /* ===============================
-       HERO
-       =============================== */
     .hero {
       position: relative;
       width: 100%;
@@ -43,7 +54,7 @@
     }
 
     /* ===============================
-       BACKGROUND VIDEO (SEAM SAFE)
+       BACKGROUND VIDEO
        =============================== */
     .bg-video {
       position: absolute;
@@ -52,18 +63,15 @@
       height: 112%;
       object-fit: cover;
       z-index: 1;
-      filter: brightness(0.35);
-      animation: slowZoom 22s ease-in-out infinite alternate;
+      filter: brightness(1);
+      animation: slowZoom 22s ease-in-out forwards;
     }
 
     @keyframes slowZoom {
       from { transform: scale(1); }
-      to   { transform: scale(1.08); }
+      to   { transform: scale(1.); }
     }
 
-    /* ===============================
-       OVERLAY (CLEAN)
-       =============================== */
     .overlay {
       position: absolute;
       inset: 0;
@@ -71,14 +79,11 @@
       background: radial-gradient(
         circle at top,
         rgba(255,255,255,0.06) 0%,
-        rgba(0,0,0,0.9) 70%
+        rgba(0,0,0,0.9) 100%
       );
       pointer-events: none;
     }
 
-    /* ===============================
-       FILM GRAIN (SAFE, NO SEAMS)
-       =============================== */
     .hero::after {
       content: "";
       position: absolute;
@@ -89,9 +94,6 @@
       opacity: 0.05;
     }
 
-    /* ===============================
-       CONTENT
-       =============================== */
     .content {
       position: relative;
       z-index: 4;
@@ -110,7 +112,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* JTV3D LOGO TEXT */
     h1 {
       font-family: 'Tilt Warp', cursive;
       font-size: clamp(3.8rem, 9vw, 7.8rem);
@@ -145,6 +146,29 @@
       line-height: 1.6;
     }
 
+    /* ===============================
+       SOCIAL LINKS
+       =============================== */
+    .socials {
+      display: flex;
+      gap: 22px;
+      margin-top: 34px;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      opacity: 0.55;
+    }
+
+    .socials a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .socials a:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
     footer {
       position: absolute;
       bottom: 26px;
@@ -153,9 +177,6 @@
       letter-spacing: 0.12em;
     }
 
-    /* ===============================
-       MOBILE
-       =============================== */
     @media (max-width: 768px) {
       .bg-video { display: none; }
       .hero {
@@ -168,9 +189,8 @@
 <body>
   <section class="hero">
 
-    <!-- Background Video -->
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="assets/vid/Rough%20cut.mp4" type="video/mp4">
+    <video class="bg-video" autoplay muted playsinline>
+      <source src="assets/vid/simpleobjects_006%201-240%20ehFi.mp4" type="video/mp4">
     </video>
 
     <div class="overlay"></div>
@@ -189,9 +209,23 @@
         New work landing soon
       </div>
 
+      <div class="socials">
+        <a href="https://www.instagram.com/jtv3d/" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a href="https://www.linkedin.com/in/johan-thomas-varghese-78896a2a8/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a href="https://www.youtube.com/@jtv3d" target="_blank" rel="noopener">YOUTUBE</a>
+      </div>
+
       <footer>© 2026 JTV3D</footer>
     </div>
 
   </section>
+
+  <script>
+    const video = document.querySelector('.bg-video');
+    video.addEventListener('ended', () => {
+      video.pause();
+      video.currentTime = video.duration;
+    });
+  </script>
 </body>
 </html>
