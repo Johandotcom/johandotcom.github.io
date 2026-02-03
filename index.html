@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>JTV3D — Under Construction</title>
+  <meta name="description" content="JTV3D — Cinematic CGI, Product Films & VFX. Site under construction." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" href="assets/favicons/jtv-favicon.png">
+
+  <!-- Fonts (FROM OLD SITE) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: black;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+
+    /* ===============================
+       HERO
+       =============================== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: black;
+    }
+
+    /* ===============================
+       BACKGROUND VIDEO (SEAM SAFE)
+       =============================== */
+    .bg-video {
+      position: absolute;
+      inset: -6%;
+      width: 112%;
+      height: 112%;
+      object-fit: cover;
+      z-index: 1;
+      filter: brightness(0.35);
+      animation: slowZoom 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.08); }
+    }
+
+    /* ===============================
+       OVERLAY (CLEAN)
+       =============================== */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(
+        circle at top,
+        rgba(255,255,255,0.06) 0%,
+        rgba(0,0,0,0.9) 70%
+      );
+      pointer-events: none;
+    }
+
+    /* ===============================
+       FILM GRAIN (SAFE, NO SEAMS)
+       =============================== */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      opacity: 0.05;
+    }
+
+    /* ===============================
+       CONTENT
+       =============================== */
+    .content {
+      position: relative;
+      z-index: 4;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeUp 1.4s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* JTV3D LOGO TEXT */
+    h1 {
+      font-family: 'Tilt Warp', cursive;
+      font-size: clamp(3.8rem, 9vw, 7.8rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .sub {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.65;
+      letter-spacing: 0.04em;
+    }
+
+    .divider {
+      width: 64px;
+      height: 1px;
+      background: white;
+      opacity: 0.25;
+      margin: 34px 0;
+    }
+
+    .status {
+      font-size: 0.95rem;
+      opacity: 0.75;
+      line-height: 1.6;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 26px;
+      font-size: 0.75rem;
+      opacity: 0.4;
+      letter-spacing: 0.12em;
+    }
+
+    /* ===============================
+       MOBILE
+       =============================== */
+    @media (max-width: 768px) {
+      .bg-video { display: none; }
+      .hero {
+        background: radial-gradient(circle at top, #111 0%, #000 70%);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+
+    <!-- Background Video -->
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/vid/Rough%20cut.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="content">
+      <h1>JTV3D</h1>
+
+      <div class="sub">
+        Cinematic CGI · Product Films · VFX
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="status">
+        Site under construction<br />
+        New work landing soon
+      </div>
+
+      <footer>© 2026 JTV3D</footer>
+    </div>
+
+  </section>
+</body>
+</html>
