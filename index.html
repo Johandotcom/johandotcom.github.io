@@ -155,6 +155,51 @@ img, video {
     box-shadow: 0 0 25px rgba(255,255,255,0.25);
   }
 }
+    
+    /* ===== CLIENT WORK ===== */
+
+#client-work .brand-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+#client-work .brand-card {
+  padding: 14px 26px;
+  border-radius: 30px;
+  border: 1px solid #444;
+  background: transparent;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  transition: 0.3s ease;
+}
+
+#client-work .brand-card.active,
+#client-work .brand-card:hover {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+#client-work .client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 420px));
+  gap: 28px;
+  justify-content: start;
+}
+
+
+#client-work .client-item {
+  display: none;
+}
+
+#client-work .client-item.show {
+  display: block;
+}
+
 
 /* GRIDS */
 .video-grid {
@@ -340,26 +385,146 @@ footer {
   <p>Hi, I’m Johan</p>
   <p>Creative Director & 3D Generalist<br>Cinematic CGI · Product Films · VFX</p>
   <div class="hero-cta">
-    <a href="#cgi">View Work</a>
+    <a href="#client-work">View Work</a>
     <a href="#contact" class="secondary">Contact</a>
   </div>
 </div>
+    
+    
+    <!-- CLIENT WORK -->
+<section id="client-work" class="fade">
+  <div class="section-title">PREVIOUS WORKs</div>
+
+  <div class="brand-selector">
+    <div class="brand-card active" data-brand="all">ALL</div>
+    <div class="brand-card" data-brand="sony">SONY</div>
+    <div class="brand-card" data-brand="amazon">AMAZON</div>
+    <div class="brand-card" data-brand="tata">TATA NEU</div>
+      <div class="brand-card" data-brand="Sonata">SONATA</div>
+      <div class="brand-card" data-brand="PARIS CORNER">PARIS CORNER</div>
+      <div class="brand-card" data-brand="MAISON ASRAR">MAISON ASRAR</div>
+      <div class="brand-card" data-brand="MUSIC VID">MUSIC VID</div>
+  </div>
+
+  <div class="client-grid">
+
+    <!-- SONY -->
+    <div class="client-item show" data-brand="sony">
+      <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/sony_wez.mp4"></video>
+      </div>
+    </div>
+
+    <!-- AMAZON -->
+    <div class="client-item show" data-brand="amazon">
+      <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/amazon_wez.mp4"></video>
+      </div>
+    </div>
+
+    <!-- TATA -->
+    <div class="client-item show" data-brand="tata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/tataneu1_wez.mp4"></video>
+      </div>
+    </div>
+
+        <div class="client-item show" data-brand="tata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/tataneu2_wez.mp4"></video>
+      </div>
+    </div>
+
+
+        <div class="client-item show" data-brand="tata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/tataneu3_wez.mp4"></video>
+      </div>
+    </div>
+
+
+        <div class="client-item show" data-brand="tata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/tataneu4_wez.mp4"></video>
+      </div>
+    </div>
+
+
+        <div class="client-item show" data-brand="tata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/tataneu5_wez.mp4"></video>
+      </div>
+    </div>
+
+
+      
+      <!-- SONATA -->
+    <div class="client-item show" data-brand="Sonata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/sonata1_wez.mp4"></video>
+      </div>
+    </div>
+
+      <div class="client-item show" data-brand="Sonata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/sonata2_wez.mp4"></video>
+      </div>
+    </div>
+
+      <div class="client-item show" data-brand="Sonata">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/sonata3_wez.mp4"></video>
+      </div>
+    </div>
+
+         <!-- PARIS CORNER -->
+      <div class="client-item show" data-brand="PARIS CORNER">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/moltencaramel_wez.mp4"></video>
+      </div>
+    </div>
+      
+        <div class="client-item show" data-brand="PARIS CORNER">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/datecaramel_wez.mp4"></video>
+      </div>
+    </div>
+      
+        <div class="client-item show" data-brand="PARIS CORNER">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/INDO_WEZ.mp4"></video>
+      </div>
+    </div>
+      
+             
+      <!-- MAISON ASRAR -->
+      <div class="client-item show" data-brand="MAISON ASRAR">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/Vanillavoyage_wez.mp4"></video>
+      </div>
+    </div>
+      
+      <!-- MUSIC VID -->
+      <div class="client-item show" data-brand="MUSIC VID">
+       <div class="video-card">
+  <video autoplay muted loop playsinline src="assets/vid/titli_wez.mp4"></video>
+      </div>
+    </div>
+      
+  </div>
+</section>
+
 
 <!-- CGI -->
 <section id="cgi" class="fade">
   <div class="section-title">CGI FILMS AND EXPERIMENTS</div>
   <div class="video-grid">
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Rough cut.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/jtn_v1_8.24.51 - Trim.mp4"></video></div>
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/JIC_JTV_v1.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/CandM_JTV_v1.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/MS_JTV_V1.mp4"></video></div>
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/night wind20001-0250.mp4"></video></div>
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Looked cool, I'll probably delete this later.mp4"></video></div>
     <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Lamborghini Centenario _ Blender X.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/breakdown 1.mp4"></video></div>
   </div>
 </section>
 
@@ -433,6 +598,11 @@ footer {
   <div class="section-title">CONTACT</div>
   <div class="section-desc">
     Available for freelance, brand collaborations, and production work.
+      
+  </div>
+    <div class="section-desc">
+   Contact: hey@jtv3d.com
+      
   </div>
 
   <form class="contact-form" id="contactForm">
@@ -471,6 +641,32 @@ footer {
 </div>
 
 <script>
+    
+    /* Client Work Filter */
+const brandCards = document.querySelectorAll('#client-work .brand-card');
+const clientItems = document.querySelectorAll('#client-work .client-item');
+
+brandCards.forEach(card => {
+  card.addEventListener('click', () => {
+
+    brandCards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    const brand = card.getAttribute('data-brand');
+
+    clientItems.forEach(item => {
+      if (brand === "all" || item.getAttribute('data-brand') === brand) {
+        item.classList.add('show');
+      } else {
+        item.classList.remove('show');
+      }
+    });
+  });
+});
+
+    
+    
+    
 /* Scroll fade */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
