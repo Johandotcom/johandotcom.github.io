@@ -200,6 +200,31 @@ img, video {
   display: block;
 }
 
+/* ===== Brand Pill Animation (Integrated with .fade) ===== */
+
+#client-work .brand-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* When section becomes visible via your existing fade observer */
+#client-work.fade.visible .brand-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger */
+#client-work.fade.visible .brand-card:nth-child(1) { transition-delay: 0.05s; }
+#client-work.fade.visible .brand-card:nth-child(2) { transition-delay: 0.1s; }
+#client-work.fade.visible .brand-card:nth-child(3) { transition-delay: 0.15s; }
+#client-work.fade.visible .brand-card:nth-child(4) { transition-delay: 0.2s; }
+#client-work.fade.visible .brand-card:nth-child(5) { transition-delay: 0.25s; }
+#client-work.fade.visible .brand-card:nth-child(6) { transition-delay: 0.3s; }
+#client-work.fade.visible .brand-card:nth-child(7) { transition-delay: 0.35s; }
+#client-work.fade.visible .brand-card:nth-child(8) { transition-delay: 0.4s; }
+
+
 
 /* GRIDS */
 .video-grid {
@@ -741,6 +766,10 @@ overlay.addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeOverlay();
 });
+    
+
+
+    
 </script>
 
 </body>
