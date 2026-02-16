@@ -1,248 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Johan Thomas Varghese | JTV3D</title>
-<meta name="description" content="Creative Director & 3D Generalist crafting cinematic CGI, product films, and VFX." />
-<meta name="robots" content="index, follow">
+  <!-- META -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Johan Thomas Varghese | JTV3D</title>
+  <meta name="description" content="Creative Director & 3D Generalist crafting cinematic CGI, product films, and VFX." />
+  <meta name="robots" content="index, follow">
+  <link rel="icon" href="assets/favicons/jtv-favicon.png">
 
-<link rel="icon" href="assets/favicons/jtv-favicon.png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6H68H7FC7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6H68H7FC7R');
+  </script>
 
-<!-- Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6H68H7FC7R"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-6H68H7FC7R');
-</script>
+  <style>
 
-<style>
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  user-select: none;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      user-select: none;
+    }
 
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-thumb { background: #fff; border-radius: 4px; }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at center,
-    rgba(0,0,0,0) 40%,
-    rgba(0,0,0,0.65) 100%);
-  z-index: 5;
-}
+    ::-webkit-scrollbar-thumb {
+      background: #fff;
+      border-radius: 4px;
+    }
 
-.grain {
-  position: fixed;
-  inset: -150%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
-  opacity: 0.08;
-  pointer-events: none;
-  animation: grainMove 1.2s steps(2) infinite;
-  z-index: 6;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.65) 100%);
+      z-index: 5;
+    }
 
-@keyframes grainMove {
-  0% { transform: translate(0,0); }
-  50% { transform: translate(-5%,-5%); }
-  100% { transform: translate(0,0); }
-}
+    .grain {
+      position: fixed;
+      inset: -150%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.08;
+      pointer-events: none;
+      animation: grainMove 1.2s steps(2) infinite;
+      z-index: 6;
+    }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
-}
+    @keyframes grainMove {
+      0%   { transform: translate(0,0); }
+      50%  { transform: translate(-5%,-5%); }
+      100% { transform: translate(0,0); }
+    }
 
-.hero h1 {
-  font-family: 'Tilt Warp', cursive;
-  font-size: clamp(4rem, 9vw, 7.8rem);
-  line-height: 0.95;
-  margin: 0;
-  transition: transform 0.15s ease-out;
-}
+    /* HERO */
 
-.hero p:first-of-type {
-  margin-top: 24px;
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
 
-.hero p:nth-of-type(2) {
-  margin-top: 10px;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
+    .hero h1 {
+      font-family: 'Tilt Warp', cursive;
+      font-size: clamp(4rem, 9vw, 7.8rem);
+      line-height: 0.95;
+      margin: 0;
+      transition: transform 0.15s ease-out;
+    }
 
-/* CTA */
-.hero-cta {
-  margin-top: 42px;
-  display: flex;
-  gap: 18px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    .hero p:first-of-type {
+      margin-top: 24px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
 
-.hero-cta a {
-  padding: 14px 28px;
-  border-radius: 30px;
-  border: 1px solid white;
-  color: white;
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: 0.3s;
-}
+    .hero p:nth-of-type(2) {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
 
-.hero-cta a:hover {
-  background: white;
-  color: black;
-}
+    .hero-cta {
+      margin-top: 42px;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.hero-cta .secondary {
-  border-color: #555;
-  color: #aaa;
-}
+    .hero-cta a {
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: 1px solid white;
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.3s;
+    }
 
-/* SECTIONS */
-section {
-  max-width: 1400px;
-  margin: auto;
-  padding: 120px 20px;
-}
+    .hero-cta a:hover {
+      background: white;
+      color: black;
+    }
 
-.section-title {
-  font-size: 0.7rem;
-  letter-spacing: 5px;
-  opacity: 0.5;
-  margin-bottom: 22px;
-}
+    .hero-cta .secondary {
+      border-color: #555;
+      color: #aaa;
+    }
 
-/* MEDIA */
-img, video {
-  width: 100%;
-  border-radius: 18px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  pointer-events: none;
-}
+    /* SECTIONS */
 
-@media (hover: hover) {
-  img:hover, video:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 25px rgba(255,255,255,0.25);
-  }
-}
-    
+    section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 120px 20px;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      opacity: 0.5;
+      margin-bottom: 22px;
+    }
+
+    img, video {
+      width: 100%;
+      border-radius: 18px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      pointer-events: none;
+    }
+
+    @media (hover: hover) {
+      img:hover,
+      video:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(255,255,255,0.25);
+      }
+    }
+
     /* ===== CLIENT WORK ===== */
 
-#client-work .brand-selector {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 40px;
-}
+    #client-work .brand-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
 
-#client-work .brand-card {
-  padding: 14px 26px;
-  border-radius: 30px;
-  border: 1px solid #444;
-  background: transparent;
-  color: #aaa;
-  cursor: pointer;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  transition: 0.3s ease;
-}
+    #client-work .brand-card {
+      padding: 14px 26px;
+      border-radius: 30px;
+      border: 1px solid #444;
+      background: transparent;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      transition: 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
 
-#client-work .brand-card.active,
-#client-work .brand-card:hover {
-  background: white;
-  color: black;
-  border-color: white;
-}
+    #client-work .brand-card.active,
+    #client-work .brand-card:hover {
+      background: white;
+      color: black;
+      border-color: white;
+    }
 
-#client-work .client-grid {
+    #client-work.fade.visible .brand-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #client-work.fade.visible .brand-card:nth-child(1) { transition-delay: 0.05s; }
+    #client-work.fade.visible .brand-card:nth-child(2) { transition-delay: 0.1s; }
+    #client-work.fade.visible .brand-card:nth-child(3) { transition-delay: 0.15s; }
+    #client-work.fade.visible .brand-card:nth-child(4) { transition-delay: 0.2s; }
+    #client-work.fade.visible .brand-card:nth-child(5) { transition-delay: 0.25s; }
+    #client-work.fade.visible .brand-card:nth-child(6) { transition-delay: 0.3s; }
+    #client-work.fade.visible .brand-card:nth-child(7) { transition-delay: 0.35s; }
+    #client-work.fade.visible .brand-card:nth-child(8) { transition-delay: 0.4s; }
+
+   #client-work .client-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 420px));
   gap: 28px;
-  justify-content: start;
+  justify-content: center;
 }
 
 
-#client-work .client-item {
-  display: none;
+    #client-work .client-item {
+      display: none;
+    }
+
+    #client-work .client-item.show {
+      display: block;
+    }
+
+    /* ===== GRIDS ===== */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* VIDEO FOCUS */
+
+    .video-card {
+      cursor: pointer;
+    }
+
+    .video-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .video-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .video-focus {
+      transform: scale(0.92);
+      transition: transform 0.35s ease;
+    }
+
+    .video-overlay.active .video-focus {
+      transform: scale(1.15);
+    }
+
+    .video-focus video {
+      max-width: 72vw;
+      max-height: 72vh;
+      border-radius: 20px;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.75);
+    }
+
+    /* BRANDS */
+
+    .brands-note {
+      font-size: 0.8rem;
+      opacity: 0.55;
+      margin-bottom: 40px;
+      max-width: 700px;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .brands-grid img {
+      max-width: 140px;
+      margin: auto;
+      opacity: 0.75;
+      filter: grayscale(100%);
+      transition: 0.3s ease;
+    }
+
+    /* MOVIES */
+
+    .movies-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .movies-row img {
+      max-width: 220px;
+    }
+
+    /* FADE */
+
+    .fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CONTACT */
+
+    #contact {
+      font-family: 'DM Sans', sans-serif;
+      text-align: center;
+    }
+
+    .section-desc {
+      opacity: 0.65;
+      font-size: 0.95rem;
+      margin-bottom: 60px;
+    }
+
+    .contact-form {
+      max-width: 900px;
+      margin: 0 auto 60px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .contact-row:last-of-type {
+      grid-template-columns: 1fr auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 14px 16px;
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .contact-form textarea {
+      resize: none;
+      min-height: 56px;
+    }
+
+    .contact-form button {
+      background: white;
+      color: black;
+      border: none;
+      padding: 0 28px;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      opacity: 0.6;
+    }
+
+    .contact-socials a {
+      color: white;
+      text-decoration: none;
+    }
+      
+      /* CAROUSEL */
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 40px;
 }
 
-#client-work .client-item.show {
-  display: block;
+.carousel-track {
+  display: flex;
+  gap: 28px;
+  animation: scrollCarousel 40s linear infinite;
+  width: max-content;
 }
 
-/* ===== Brand Pill Animation (Integrated with .fade) ===== */
-
-#client-work .brand-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.carousel-img {
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* When section becomes visible via your existing fade observer */
-#client-work.fade.visible .brand-card {
-  opacity: 1;
-  transform: translateY(0);
+.carousel-img:hover {
+  transform: scale(1.03);
 }
 
-/* Stagger */
-#client-work.fade.visible .brand-card:nth-child(1) { transition-delay: 0.05s; }
-#client-work.fade.visible .brand-card:nth-child(2) { transition-delay: 0.1s; }
-#client-work.fade.visible .brand-card:nth-child(3) { transition-delay: 0.15s; }
-#client-work.fade.visible .brand-card:nth-child(4) { transition-delay: 0.2s; }
-#client-work.fade.visible .brand-card:nth-child(5) { transition-delay: 0.25s; }
-#client-work.fade.visible .brand-card:nth-child(6) { transition-delay: 0.3s; }
-#client-work.fade.visible .brand-card:nth-child(7) { transition-delay: 0.35s; }
-#client-work.fade.visible .brand-card:nth-child(8) { transition-delay: 0.4s; }
-
-
-
-/* GRIDS */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+@keyframes scrollCarousel {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-/* VIDEO FOCUS */
-.video-card { cursor: pointer; }
-
-.video-overlay {
+      .image-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.35);
@@ -255,480 +448,468 @@ img, video {
   transition: opacity 0.25s ease;
 }
 
-.video-overlay.active {
+.image-overlay.active {
   display: flex;
   opacity: 1;
 }
 
-.video-focus {
-  transform: scale(0.92);
+.image-focus {
+  transform: scale(0.9);
   transition: transform 0.35s ease;
 }
 
-.video-overlay.active .video-focus {
-  transform: scale(1.15);
+.image-overlay.active .image-focus {
+  transform: scale(1);
 }
 
-.video-focus video {
-  max-width: 72vw;
-  max-height: 72vh;
+.image-focus img {
+  max-width: 75vw;
+  max-height: 80vh;
   border-radius: 20px;
   box-shadow: 0 40px 120px rgba(0,0,0,0.75);
 }
 
-/* BRANDS */
-.brands-note {
-  font-size: 0.8rem;
-  opacity: 0.55;
-  margin-bottom: 40px;
-  max-width: 700px;
-}
 
-.brands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 40px;
-  align-items: center;
-}
+    /* FOOTER */
 
-.brands-grid img {
-  max-width: 140px;
-  margin: auto;
-  opacity: 0.75;
-  filter: grayscale(100%);
-  transition: 0.3s ease;
-}
+    footer {
+      padding: 100px 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.7;
+    }
 
-/* MOVIES */
-.movies-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-}
-
-.movies-row img { max-width: 220px; }
-
-/* FADE */
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s ease;
-}
-
-.fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* CONTACT */
-#contact {
-  font-family: 'DM Sans', sans-serif;
-  text-align: center;
-}
-
-.section-desc {
-  opacity: 0.65;
-  font-size: 0.95rem;
-  margin-bottom: 60px;
-}
-
-.contact-form {
-  max-width: 900px;
-  margin: 0 auto 60px;
-}
-
-.contact-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.contact-row:last-of-type {
-  grid-template-columns: 1fr auto;
-}
-
-.contact-form input,
-.contact-form textarea {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.35);
-  padding: 14px 16px;
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  outline: none;
-}
-
-.contact-form textarea {
-  resize: none;
-  min-height: 56px;
-}
-
-.contact-form button {
-  background: white;
-  color: black;
-  border: none;
-  padding: 0 28px;
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.contact-socials {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  opacity: 0.6;
-}
-
-.contact-socials a {
-  color: white;
-  text-decoration: none;
-}
-
-/* FOOTER */
-footer {
-  padding: 100px 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-</style>
+  </style>
 </head>
 
 <body oncontextmenu="return false">
 
-<div class="grain"></div>
+  <div class="grain"></div>
 
-<!-- HERO -->
-<div class="hero fade">
-  <h1 id="tiltTitle">JTV3D</h1>
-  <p>Hi, I’m Johan</p>
-  <p>CGI & Product Visualization Specialist</p>
-<p>Commercial 3D Films · Launch Visual Systems · Production Support</p>
-  <div class="hero-cta">
-    <a href="#client-work">View Work</a>
-    <a href="#contact" class="secondary">Contact</a>
+  <!-- HERO -->
+  <div class="hero fade">
+    <h1 id="tiltTitle">JTV3D</h1>
+    <p>CGI & Product Visualization</p>
+    <p>Commercial 3D Films · Launch Visual Systems · Production Support</p>
+    <p></p>
+
+    <div class="hero-cta">
+      <a href="#client-work">View Work</a>
+      <a href="#contact" class="secondary">Contact</a>
+    </div>
   </div>
-</div>
-    
-    
-    <!-- CLIENT WORK -->
-<section id="client-work" class="fade">
-  <div class="section-title">PREVIOUS WORKs</div>
 
-  <div class="brand-selector">
-    <div class="brand-card active" data-brand="all">ALL</div>
-    <div class="brand-card" data-brand="sony">SONY</div>
-    <div class="brand-card" data-brand="amazon">AMAZON</div>
-    <div class="brand-card" data-brand="tata">TATA NEU</div>
+  <!-- CLIENT WORK -->
+  <section id="client-work" class="fade">
+
+    <div class="section-title">PREVIOUS WORKs</div>
+
+    <div class="brand-selector">
+      <div class="brand-card active" data-brand="all">ALL</div>
+      <div class="brand-card" data-brand="sony">SONY</div>
+      <div class="brand-card" data-brand="amazon">AMAZON</div>
+      <div class="brand-card" data-brand="tata">TATA NEU</div>
       <div class="brand-card" data-brand="Sonata">SONATA</div>
       <div class="brand-card" data-brand="PARIS CORNER">PARIS CORNER</div>
       <div class="brand-card" data-brand="MAISON ASRAR">MAISON ASRAR</div>
       <div class="brand-card" data-brand="MUSIC VID">MUSIC VID</div>
-  </div>
-
-  <div class="client-grid">
-
-    <!-- SONY -->
-    <div class="client-item show" data-brand="sony">
-      <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/sony_wez.mp4"></video>
-      </div>
     </div>
 
-    <!-- AMAZON -->
-    <div class="client-item show" data-brand="amazon">
-      <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/amazon_wez.mp4"></video>
+    <div class="client-grid">
+
+      <!-- SONY -->
+      <div class="client-item show" data-brand="sony">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/sony_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
-    <!-- TATA -->
-   
-
-        <div class="client-item show" data-brand="tata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/tataneu2_wez.mp4"></video>
+      <!-- AMAZON -->
+      <div class="client-item show" data-brand="amazon">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/amazon_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
+      <!-- TATA -->
+      
 
-        <div class="client-item show" data-brand="tata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/tataneu3_wez.mp4"></video>
+      <div class="client-item show" data-brand="tata">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/tataneu2_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
-
-        <div class="client-item show" data-brand="tata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/tataneu4_wez.mp4"></video>
+      <div class="client-item show" data-brand="tata">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/tataneu3_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
-
-     
+      <div class="client-item show" data-brand="tata">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/tataneu4_wez.mp4"></video>
+        </div>
+      </div>
 
       
+
       <!-- SONATA -->
-    <div class="client-item show" data-brand="Sonata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/sonata1_wez.mp4"></video>
+      <div class="client-item show" data-brand="Sonata">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/sonata1_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
       <div class="client-item show" data-brand="Sonata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/sonata2_wez.mp4"></video>
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/sonata2_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
       <div class="client-item show" data-brand="Sonata">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/sonata3_wez.mp4"></video>
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/sonata3_wez.mp4"></video>
+        </div>
       </div>
-    </div>
 
-         <!-- PARIS CORNER -->
+      <!-- PARIS CORNER -->
       <div class="client-item show" data-brand="PARIS CORNER">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/moltencaramel_wez.mp4"></video>
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/moltencaramel_wez.mp4"></video>
+        </div>
       </div>
-    </div>
-      
-        <div class="client-item show" data-brand="PARIS CORNER">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/datecaramel_wez.mp4"></video>
+
+      <div class="client-item show" data-brand="PARIS CORNER">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/datecaramel_wez.mp4"></video>
+        </div>
       </div>
-    </div>
-      
-        <div class="client-item show" data-brand="PARIS CORNER">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/INDO_WEZ.mp4"></video>
+
+      <div class="client-item show" data-brand="PARIS CORNER">
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/INDO_WEZ.mp4"></video>
+        </div>
       </div>
-    </div>
-      
-             
+
       <!-- MAISON ASRAR -->
       <div class="client-item show" data-brand="MAISON ASRAR">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/Vanillavoyage_wez.mp4"></video>
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/Vanillavoyage_wez.mp4"></video>
+        </div>
       </div>
-    </div>
-      
+
       <!-- MUSIC VID -->
       <div class="client-item show" data-brand="MUSIC VID">
-       <div class="video-card">
-  <video autoplay muted loop playsinline src="assets/vid/titli_wez.mp4"></video>
+        <div class="video-card">
+          <video autoplay muted loop playsinline src="assets/vid/titli_wez.mp4"></video>
+        </div>
       </div>
+
     </div>
-      
-  </div>
-</section>
+  </section>
+    
+    
+    
+    
+    
+    
+    <section id="carousel-section" class="fade">
+  <div class="section-title">SELECTED STILLS</div>
 
+  <div class="carousel">
+    <div class="carousel-track">
 
-<!-- CGI -->
-<section id="cgi" class="fade">
-  <div class="section-title">SPEC & COMMERCIAL CGI</div>
-  <div class="video-grid">
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Rough cut.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/JIC_JTV_v1.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/FORLORN _ BLENDER ANIMATION.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Looked cool, I'll probably delete this later.mp4"></video></div>
-    <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Lamborghini Centenario _ Blender X.mp4"></video></div>
-  </div>
-</section>
-
-
-
-<!-- BRANDS -->
-<section class="fade">
-  <div class="section-title">BRANDS CONTRIBUTED TO</div>
-  <p class="brands-note">
-    These brands were worked on as part of my role at previous studios and production teams.
-    Projects were executed collaboratively and some as direct freelance clients.
-  </p>
-  <div class="brands-grid">
-    <img src="assets/img/sony.png">
-    <img src="assets/img/amazon.png">
-    <img src="assets/img/TATA.png">
-    <img src="assets/img/SONATA.png">
-    <img src="assets/img/MOUVAL.png">
-    <img src="assets/img/HYPER.png">
-  </div>
-</section>
-
-<!-- FEATURE FILM -->
-<section class="fade">
-  <div class="section-title">FEATURE FILM VFX CREDS</div>
-  <div class="movies-row">
-    <a href="https://www.imdb.com/title/tt27441481/" target="_blank"><img src="assets/img/coolie.png"></a>
-    <a href="https://www.imdb.com/title/tt33037773/" target="_blank"><img src="assets/img/SUMATHI VALAVU.png"></a>
-    <a href="https://www.imdb.com/title/tt33399641/" target="_blank"><img src="assets/img/dheeram.png"></a>
-    <a href="https://www.imdb.com/title/tt28551273/" target="_blank"><img src="assets/img/bhabhaba.png"></a>
-    <a href="https://www.imdb.com/title/tt33014579/" target="_blank"><img src="assets/img/Pongala.png"></a>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="fade">
-  <div class="section-title">CONTACT</div>
-  <div class="section-desc">
-    Available for freelance, brand collaborations, and production work.
-      
-  </div>
-    <div class="section-desc">
-   Contact: hey@jtv3d.com
-      
-  </div>
-
-  <form class="contact-form" id="contactForm">
-    <div class="contact-row">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
+      <img src="assets/img/1.png" class="carousel-img">
+      <img src="assets/img/2.png" class="carousel-img">
+      <img src="assets/img/3.png" class="carousel-img">
+      <img src="assets/img/4.png" class="carousel-img">
+      <img src="assets/img/5.png" class="carousel-img">
+      <img src="assets/img/6.jpeg" class="carousel-img">
+      <img src="assets/img/7.jpeg" class="carousel-img">
+      <img src="assets/img/8.jpeg" class="carousel-img">
+      <img src="assets/img/9.jpeg" class="carousel-img">   
+      <img src="assets/img/verdyne%201.png" class="carousel-img">
+      <img src="assets/img/verdyne%202%20(1).png" class="carousel-img">
+      <img src="assets/img/verdyne%203.png" class="carousel-img">
+      <img src="assets/img/verdyne%202%20(2).png" class="carousel-img">
+      <img src="assets/img/verdyne%202.png" class="carousel-img"> 
+        
+        
+        
+        
+      <!-- duplicate for infinite smooth loop -->
+      <img src="assets/img/1.png" class="carousel-img">
+      <img src="assets/img/2.png" class="carousel-img">
+      <img src="assets/img/3.png" class="carousel-img">
+      <img src="assets/img/4.png" class="carousel-img">
+      <img src="assets/img/5.png" class="carousel-img">
+      <img src="assets/img/6.jpeg" class="carousel-img">
+      <img src="assets/img/7.jpeg" class="carousel-img">
+      <img src="assets/img/8.jpeg" class="carousel-img">
+      <img src="assets/img/9.jpeg" class="carousel-img">   
+      <img src="assets/img/verdyne%201.png" class="carousel-img">
+      <img src="assets/img/verdyne%202%20(1).png" class="carousel-img">
+      <img src="assets/img/verdyne%203.png" class="carousel-img">
+      <img src="assets/img/verdyne%202%20(2).png" class="carousel-img">
+      <img src="assets/img/verdyne%202.png" class="carousel-img"> 
     </div>
-
-    <div class="contact-row">
-      <textarea name="message" placeholder="Tell me about your project" required></textarea>
-      <button type="submit">SEND</button>
-    </div>
-
-    <input type="text" name="_gotcha" style="display:none">
-    <p class="form-status" id="formStatus"></p>
-  </form>
-
-  <div class="contact-socials">
-    <a href="https://www.instagram.com/jtv3d/" target="_blank">Instagram</a>
-    <a href="https://www.linkedin.com/in/johan-thomas-varghese-78896a2a8/" target="_blank">LinkedIn</a>
-    <a href="https://johanthomasvarghese.gumroad.com/" target="_blank">Gumroad</a>
-    <a href="https://www.youtube.com/@jtv3d" target="_blank">YouTube</a>
   </div>
 </section>
 
-<footer>
-  <p>Built with Blender.</p>
-  <p>© JTV3D 2026</p>
-</footer>
-
-<!-- VIDEO OVERLAY -->
-<div class="video-overlay" id="videoOverlay">
-  <div class="video-focus">
-    <video id="focusVideo" controls playsinline></video>
+    
+    <!-- IMAGE OVERLAY -->
+<div class="image-overlay" id="imageOverlay">
+  <div class="image-focus">
+    <img id="focusImage">
   </div>
 </div>
 
-<script>
     
+    
+    
+  <!-- CGI -->
+  <section id="cgi" class="fade">
+    <div class="section-title">SELECTED CGI PROJECTS</div>
+
+    <div class="video-grid">
+      <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Rough cut.mp4"></video></div>
+        <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/JIC_JTV_v1.mp4"></video></div>
+      <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
+      
+      
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="fade">
+    <div class="section-title">BRANDS CONTRIBUTED TO</div>
+
+    <p class="brands-note">
+      These brands were worked on as part of my role at previous studios and production teams.
+      Projects were executed collaboratively and some as direct freelance clients.
+    </p>
+
+    <div class="brands-grid">
+      <img src="assets/img/sony.png">
+      <img src="assets/img/amazon.png">
+      <img src="assets/img/TATA.png">
+      <img src="assets/img/SONATA.png">
+      <img src="assets/img/MOUVAL.png">
+      <img src="assets/img/HYPER.png">
+    </div>
+  </section>
+
+  <!-- FEATURE FILM -->
+  <section class="fade">
+    <div class="section-title">FEATURE FILM VFX CREDS</div>
+
+    <div class="movies-row">
+      <a href="https://www.imdb.com/title/tt27441481/" target="_blank">
+        <img src="assets/img/coolie.png">
+      </a>
+      <a href="https://www.imdb.com/title/tt33037773/" target="_blank">
+        <img src="assets/img/SUMATHI VALAVU.png">
+      </a>
+      <a href="https://www.imdb.com/title/tt33399641/" target="_blank">
+        <img src="assets/img/dheeram.png">
+      </a>
+      <a href="https://www.imdb.com/title/tt28551273/" target="_blank">
+        <img src="assets/img/bhabhaba.png">
+      </a>
+      <a href="https://www.imdb.com/title/tt33014579/" target="_blank">
+        <img src="assets/img/Pongala.png">
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade">
+    <div class="section-title">CONTACT</div>
+
+    <div class="section-desc">
+      Available for freelance, brand collaborations, and production work.
+    </div>
+
+    <div class="section-desc">
+      Contact: hey@jtv3d.com
+    </div>
+
+    <form class="contact-form" id="contactForm">
+      <div class="contact-row">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+      </div>
+
+      <div class="contact-row">
+        <textarea name="message" placeholder="Tell me about your project" required></textarea>
+        <button type="submit">SEND</button>
+      </div>
+
+      <input type="text" name="_gotcha" style="display:none">
+      <p class="form-status" id="formStatus"></p>
+    </form>
+
+    <div class="contact-socials">
+      <a href="https://www.instagram.com/jtv3d/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/in/johan-thomas-varghese-78896a2a8/" target="_blank">LinkedIn</a>
+      <a href="https://johanthomasvarghese.gumroad.com/" target="_blank">Gumroad</a>
+      <a href="https://www.youtube.com/@jtv3d" target="_blank">YouTube</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Built with Blender.</p>
+    <p>© JTV3D 2026</p>
+  </footer>
+
+  <!-- VIDEO OVERLAY -->
+  <div class="video-overlay" id="videoOverlay">
+    <div class="video-focus">
+      <video id="focusVideo" controls playsinline></video>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+
     /* Client Work Filter */
-const brandCards = document.querySelectorAll('#client-work .brand-card');
-const clientItems = document.querySelectorAll('#client-work .client-item');
+    const brandCards = document.querySelectorAll('#client-work .brand-card');
+    const clientItems = document.querySelectorAll('#client-work .client-item');
 
-brandCards.forEach(card => {
-  card.addEventListener('click', () => {
+    brandCards.forEach(card => {
+      card.addEventListener('click', () => {
 
-    brandCards.forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
+        brandCards.forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
 
-    const brand = card.getAttribute('data-brand');
+        const brand = card.getAttribute('data-brand');
 
-    clientItems.forEach(item => {
-      if (brand === "all" || item.getAttribute('data-brand') === brand) {
-        item.classList.add('show');
-      } else {
-        item.classList.remove('show');
-      }
+        clientItems.forEach(item => {
+          if (brand === "all" || item.getAttribute('data-brand') === brand) {
+            item.classList.add('show');
+          } else {
+            item.classList.remove('show');
+          }
+        });
+      });
     });
-  });
-});
+      
+      
+      /* Image Pop Up */
 
-    
-    
-    
-/* Scroll fade */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+const imageOverlay = document.getElementById("imageOverlay");
+const focusImage = document.getElementById("focusImage");
 
-/* Tilt title (FIXED) */
-const title = document.getElementById('tiltTitle');
-document.addEventListener('mousemove', (e) => {
-  const x = (window.innerWidth / 2 - e.clientX) / 35;
-  const y = (window.innerHeight / 2 - e.clientY) / 35;
-  title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
-
-/* Formspree */
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  status.textContent = "Sending…";
-  const data = new FormData(form);
-
-  try {
-    const res = await fetch("https://formspree.io/f/xrebnook", {
-      method: "POST",
-      body: data,
-      headers: { "Accept": "application/json" }
-    });
-
-    if (res.ok) {
-      status.textContent = "Message sent.";
-      form.reset();
-    } else {
-      status.textContent = "Something went wrong.";
-    }
-  } catch {
-    status.textContent = "Network error.";
-  }
-});
-
-/* Video focus */
-const overlay = document.getElementById("videoOverlay");
-const focusVideo = document.getElementById("focusVideo");
-
-document.querySelectorAll(".video-card").forEach(card => {
-  card.addEventListener("click", () => {
-    const v = card.querySelector("video");
-    focusVideo.src = v.src;
-    overlay.style.display = "flex";
+document.querySelectorAll(".carousel-img").forEach(img => {
+  img.addEventListener("click", () => {
+    focusImage.src = img.src;
+    imageOverlay.style.display = "flex";
     document.body.style.overflow = "hidden";
 
     requestAnimationFrame(() => {
-      overlay.classList.add("active");
-      focusVideo.play();
+      imageOverlay.classList.add("active");
     });
   });
 });
 
-function closeOverlay() {
-  overlay.classList.remove("active");
-  focusVideo.pause();
-  focusVideo.src = "";
+function closeImageOverlay() {
+  imageOverlay.classList.remove("active");
   document.body.style.overflow = "";
-  setTimeout(() => overlay.style.display = "none", 250);
+  setTimeout(() => imageOverlay.style.display = "none", 250);
 }
 
-overlay.addEventListener("click", e => {
-  if (e.target === overlay) closeOverlay();
+imageOverlay.addEventListener("click", e => {
+  if (e.target === imageOverlay) closeImageOverlay();
 });
 
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeOverlay();
+  if (e.key === "Escape") closeImageOverlay();
 });
-    
 
 
-    
-</script>
+    /* Scroll Fade */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    /* Tilt Title */
+    const title = document.getElementById('tiltTitle');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = (window.innerWidth / 2 - e.clientX) / 35;
+      const y = (window.innerHeight / 2 - e.clientY) / 35;
+      title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+    });
+
+    /* Formspree */
+    const form = document.getElementById("contactForm");
+    const status = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "Sending…";
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch("https://formspree.io/f/xrebnook", {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          status.textContent = "Message sent.";
+          form.reset();
+        } else {
+          status.textContent = "Something went wrong.";
+        }
+      } catch {
+        status.textContent = "Network error.";
+      }
+    });
+
+    /* Video Focus */
+    const overlay = document.getElementById("videoOverlay");
+    const focusVideo = document.getElementById("focusVideo");
+
+    document.querySelectorAll(".video-card").forEach(card => {
+      card.addEventListener("click", () => {
+
+        const v = card.querySelector("video");
+        focusVideo.src = v.src;
+
+        overlay.style.display = "flex";
+        document.body.style.overflow = "hidden";
+
+        requestAnimationFrame(() => {
+          overlay.classList.add("active");
+          focusVideo.play();
+        });
+      });
+    });
+
+    function closeOverlay() {
+      overlay.classList.remove("active");
+      focusVideo.pause();
+      focusVideo.src = "";
+      document.body.style.overflow = "";
+      setTimeout(() => overlay.style.display = "none", 250);
+    }
+
+    overlay.addEventListener("click", e => {
+      if (e.target === overlay) closeOverlay();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeOverlay();
+    });
+
+  </script>
 
 </body>
 </html>
