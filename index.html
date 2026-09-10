@@ -504,6 +504,130 @@
 
 <body oncontextmenu="return false">
 
+ <!-- ============================= -->
+<!-- PRELOADER (place right after <body>) -->
+<!-- ============================= -->
+<div id="preloader" style="
+  position:fixed;
+  inset:0;
+  background:#000;
+  color:#fff;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:24px;
+  font-family:'Inter', sans-serif;
+  transition:opacity 0.8s ease;
+">
+  <img src="/assets/loadingimg.png" alt="JTV3D"
+    style="width:600px; height:315px; margin-bottom:28px; animation:pulse 1.8s ease-in-out infinite;">
+
+  <svg width="220" height="24" viewBox="0 0 220 24" style="margin-bottom:16px;">
+    <defs>
+      <clipPath id="progress-clip">
+        <rect id="progress-rect" x="0" y="0" width="0" height="24"/>
+      </clipPath>
+    </defs>
+    <!-- dim background track -->
+    <path id="wave-track" d="" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- bright animated fill, revealed by growing clip rect -->
+    <path id="wave-fill" d="" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+      clip-path="url(#progress-clip)"/>
+  </svg>
+
+  <p id="preloader-percent" style="font-size:12px; color:#888; letter-spacing:1px; margin-bottom:20px;">0%</p>
+
+  <p id="mobile-disclaimer" style="
+    display:none;
+    font-size:13px;
+    color:#999;
+    max-width:280px;
+    line-height:1.5;
+  ">
+   <br>For the best experience view on desktop
+  </p>
+</div>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.95); }
+  }
+</style>
+
+<script>
+  (function() {
+    var track = document.getElementById('wave-track');
+    var fill = document.getElementById('wave-fill');
+    var rect = document.getElementById('progress-rect');
+    var percentText = document.getElementById('preloader-percent');
+    var preloader = document.getElementById('preloader');
+    var disclaimer = document.getElementById('mobile-disclaimer');
+
+    if (window.innerWidth < 768) {
+      disclaimer.style.display = 'block';
+    }
+
+    var WIDTH = 220;
+    var MID = 10;
+    var AMPLITUDE = 7;   // how tall the wiggle is — increase for a bigger squiggle
+    var WAVELENGTH = 1; // distance between peaks — decrease for tighter waves
+    var phase = 4;
+
+    function buildPath(phaseOffset) {
+      var d = 'M0,' + MID;
+      var step = 4;
+      for (var x = step; x <= WIDTH; x += step) {
+        var y = MID + Math.sin((x / WAVELENGTH) + phaseOffset) * AMPLITUDE;
+        d += ' L' + x + ',' + y.toFixed(2);
+      }
+      return d;
+    }
+
+    var progress = 0;
+    var done = false;
+
+    function animate() {
+      phase += 0.15; // wiggle speed
+      var d = buildPath(phase);
+      track.setAttribute('d', d);
+      fill.setAttribute('d', d);
+
+      if (!done) requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    var interval = setInterval(function() {
+      progress += Math.random() * 12;
+      if (progress >= 100) progress = 100;
+
+      rect.setAttribute('width', (WIDTH * progress / 100).toFixed(1));
+      percentText.textContent = Math.floor(progress) + '%';
+
+      if (progress === 100) {
+        clearInterval(interval);
+        setTimeout(function() {
+          done = true;
+          preloader.style.opacity = '0';
+          setTimeout(function() {
+            preloader.style.display = 'none';
+          }, 600);
+        }, 400);
+      }
+    }, 150);
+
+    // Failsafe: force-hide after 6s even if something stalls
+    setTimeout(function() {
+      done = true;
+      preloader.style.opacity = '0';
+      setTimeout(function() { preloader.style.display = 'none'; }, 600);
+    }, 6000);
+  })();
+</script>
+
   <div class="grain"></div>
 
   <!-- HERO -->
