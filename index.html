@@ -159,6 +159,12 @@
       pointer-events: none;
     }
 
+    .video-card video {
+      background: #111;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
     @media (hover: hover) {
       img:hover,
       video:hover {
@@ -520,14 +526,14 @@
       <!-- SONY -->
       <div class="client-item show" data-brand="sony">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/sony_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/sony_wez.mp4"></video>
         </div>
       </div>
 
       <!-- AMAZON -->
       <div class="client-item show" data-brand="amazon">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/amazon_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/amazon_wez.mp4"></video>
         </div>
       </div>
 
@@ -536,19 +542,19 @@
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/tataneu2_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu2_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/tataneu3_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu3_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/tataneu4_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu4_wez.mp4"></video>
         </div>
       </div>
 
@@ -557,52 +563,52 @@
       <!-- SONATA -->
       <div class="client-item show" data-brand="Sonata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/sonata1_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/sonata1_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Sonata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/sonata2_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/sonata2_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Sonata">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/sonata3_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/sonata3_wez.mp4"></video>
         </div>
       </div>
 
       <!-- PARIS CORNER -->
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/moltencaramel_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/moltencaramel_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/datecaramel_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/datecaramel_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/INDO_WEZ.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/INDO_WEZ.mp4"></video>
         </div>
       </div>
 
       <!-- MAISON ASRAR -->
       <div class="client-item show" data-brand="MAISON ASRAR">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/Vanillavoyage_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/Vanillavoyage_wez.mp4"></video>
         </div>
       </div>
 
       <!-- MUSIC VID -->
       <div class="client-item show" data-brand="MUSIC VID">
         <div class="video-card">
-          <video autoplay muted loop playsinline src="assets/vid/titli_wez.mp4"></video>
+          <video muted loop playsinline preload="metadata" data-src="assets/vid/titli_wez.mp4"></video>
         </div>
       </div>
 
@@ -624,9 +630,9 @@
     <div class="section-title">SELECTED CGI PROJECTS</div>
 
     <div class="video-grid">
-      <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Rough cut.mp4"></video></div>
-        <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/JIC_JTV_v1.mp4"></video></div>
-      <div class="video-card"><video autoplay muted loop playsinline src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
+      <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/Rough cut.mp4"></video></div>
+        <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/JIC_JTV_v1.mp4"></video></div>
+      <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/Blender Animation _ Test Footage.mp4"></video></div>
       
       
     </div>
@@ -753,31 +759,33 @@
 const imageOverlay = document.getElementById("imageOverlay");
 const focusImage = document.getElementById("focusImage");
 
-document.querySelectorAll(".carousel-img").forEach(img => {
-  img.addEventListener("click", () => {
-    focusImage.src = img.src;
-    imageOverlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
+if (imageOverlay && focusImage) {
+  document.querySelectorAll(".carousel-img").forEach(img => {
+    img.addEventListener("click", () => {
+      focusImage.src = img.src;
+      imageOverlay.style.display = "flex";
+      document.body.style.overflow = "hidden";
 
-    requestAnimationFrame(() => {
-      imageOverlay.classList.add("active");
+      requestAnimationFrame(() => {
+        imageOverlay.classList.add("active");
+      });
     });
   });
-});
 
-function closeImageOverlay() {
-  imageOverlay.classList.remove("active");
-  document.body.style.overflow = "";
-  setTimeout(() => imageOverlay.style.display = "none", 250);
+  function closeImageOverlay() {
+    imageOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+    setTimeout(() => imageOverlay.style.display = "none", 250);
+  }
+
+  imageOverlay.addEventListener("click", e => {
+    if (e.target === imageOverlay) closeImageOverlay();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeImageOverlay();
+  });
 }
-
-imageOverlay.addEventListener("click", e => {
-  if (e.target === imageOverlay) closeImageOverlay();
-});
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeImageOverlay();
-});
 
 
     /* Scroll Fade */
@@ -828,11 +836,31 @@ document.addEventListener("keydown", e => {
     const overlay = document.getElementById("videoOverlay");
     const focusVideo = document.getElementById("focusVideo");
 
+    /* Lazy-load & play-on-view for grid videos (fixes slow mobile loading) */
+    const lazyVideos = document.querySelectorAll(".video-card video[data-src]");
+
+    const lazyVideoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target;
+        if (entry.isIntersecting) {
+          if (!video.src && video.dataset.src) {
+            video.src = video.dataset.src;
+            video.load();
+          }
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    }, { rootMargin: "300px 0px", threshold: 0.1 });
+
+    lazyVideos.forEach(v => lazyVideoObserver.observe(v));
+
     document.querySelectorAll(".video-card").forEach(card => {
       card.addEventListener("click", () => {
 
         const v = card.querySelector("video");
-        focusVideo.src = v.src;
+        focusVideo.src = v.dataset.src || v.src;
 
         overlay.style.display = "flex";
         document.body.style.overflow = "hidden";
