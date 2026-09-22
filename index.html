@@ -262,6 +262,18 @@
       gap: 20px;
     }
 
+    /* CGI section: 3 across on top, remaining centered below (desktop only) */
+    @media (min-width: 900px) {
+      #cgi .video-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #cgi .video-grid .video-card {
+        flex: 0 1 340px;
+      }
+    }
+
     /* VIDEO FOCUS */
 
     .video-card {
@@ -798,20 +810,34 @@
     
     
     
-  <!-- CGI -->
-  <section id="cgi" class="fade">
-    <div class="section-title">SELECTED CGI PROJECTS</div>
+ <!-- CGI -->
+<section id="cgi" class="fade">
+  <div class="section-title">SELECTED CGI PROJECTS</div>
 
-    <div class="video-grid">
-                  <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/The chairlowres.mp4"></video></div>
-                  <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/journeytonowhere.mp4"></video></div>
-
-      <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/Rough cut.mp4"></video></div>
-        <div class="video-card"><video muted loop playsinline preload="metadata" data-src="assets/vid/JIC_JTV_v1.mp4"></video></div>
-
-      
+  <div class="video-grid">
+    <div class="video-card">
+      <video muted loop playsinline preload="metadata" data-src="assets/vid/The chairlowres.mp4"></video>
     </div>
-  </section>
+    <div class="video-card">
+      <video muted loop playsinline preload="metadata" data-src="assets/vid/The abandoned churchedit v4.mp4"></video>
+    </div>
+    <div class="video-card">
+      <video muted loop playsinline preload="metadata" data-src="assets/vid/JIC_JTV_v1.mp4"></video>
+    </div>
+    <div class="video-card">
+      <video muted loop playsinline preload="metadata" data-src="assets/vid/Rough cut.mp4"></video>
+    </div>
+    <div class="video-card">
+      <video muted loop playsinline preload="metadata" data-src="assets/vid/journeytonowhere.mp4"></video>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
 
   <!-- BRANDS -->
   <section class="fade">
