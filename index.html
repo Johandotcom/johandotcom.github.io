@@ -24,10 +24,12 @@
   <meta name="twitter:description" content="Creative Director & 3D Generalist crafting cinematic CGI, product films, and VFX.">
   <meta name="twitter:image" content="https://jtv3d.com/assets/og-image.png">
 
+  <link rel="canonical" href="https://jtv3d.com/">
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&family=Inter:wght@400&family=DM+Sans:wght@400&display=swap" rel="stylesheet">
 
   <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6H68H7FC7R"></script>
@@ -234,7 +236,7 @@
 
    #client-work .client-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 420px));
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 420px));
   gap: 28px;
   justify-content: center;
 }
@@ -252,13 +254,13 @@
 
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
       gap: 24px;
     }
 
     .image-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
       gap: 20px;
     }
 
@@ -349,6 +351,7 @@
 
     .movies-row img {
       max-width: 220px;
+      height: auto;
     }
 
     /* FADE */
@@ -534,8 +537,8 @@
   font-family:'Inter', sans-serif;
   transition:opacity 0.8s ease;
 ">
-  <img src="/assets/loadingimg.png" alt="JTV3D"
-    style="width:600px; height:315px; margin-bottom:28px; animation:pulse 1.8s ease-in-out infinite;">
+  <img src="/assets/loadingimg.webp" alt="JTV3D" width="600" height="315" fetchpriority="high"
+    style="width:600px; max-width:100%; height:auto; margin-bottom:28px; animation:pulse 1.8s ease-in-out infinite;">
 
   <svg width="220" height="24" viewBox="0 0 220 24" style="margin-bottom:16px;">
     <defs>
@@ -612,8 +615,13 @@
     }
     requestAnimationFrame(animate);
 
+    var loaded = document.readyState === 'complete';
+    window.addEventListener('load', function() { loaded = true; });
+
+    // Creeps up to 90% while the page loads, then finishes quickly once it has
     var interval = setInterval(function() {
-      progress += Math.random() * 12;
+      progress += loaded ? 25 : Math.random() * 8;
+      if (!loaded && progress > 90) progress = 90;
       if (progress >= 100) progress = 100;
 
       rect.setAttribute('width', (WIDTH * progress / 100).toFixed(1));
@@ -627,9 +635,9 @@
           setTimeout(function() {
             preloader.style.display = 'none';
           }, 600);
-        }, 400);
+        }, 200);
       }
-    }, 150);
+    }, 80);
 
     // Failsafe: force-hide after 6s even if something stalls
     setTimeout(function() {
@@ -677,14 +685,14 @@
       <!-- SONY -->
       <div class="client-item show" data-brand="sony">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/sony_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/sony_wez.webp" data-src="assets/vid/preview/sony_wez.mp4" data-full="assets/vid/sony_wez.mp4"></video>
         </div>
       </div>
 
       <!-- AMAZON -->
       <div class="client-item show" data-brand="amazon">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/amazon_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/amazon_wez.webp" data-src="assets/vid/preview/amazon_wez.mp4" data-full="assets/vid/amazon_wez.mp4"></video>
         </div>
       </div>
 
@@ -693,19 +701,19 @@
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu2_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/tataneu2_wez.webp" data-src="assets/vid/preview/tataneu2_wez.mp4" data-full="assets/vid/tataneu2_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu3_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/tataneu3_wez.webp" data-src="assets/vid/preview/tataneu3_wez.mp4" data-full="assets/vid/tataneu3_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="tata">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/tataneu4_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/tataneu4_wez.webp" data-src="assets/vid/preview/tataneu4_wez.mp4" data-full="assets/vid/tataneu4_wez.mp4"></video>
         </div>
       </div>
 
@@ -716,46 +724,46 @@
 
       <div class="client-item show" data-brand="Sonata">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/sonata2_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/sonata2_wez.webp" data-src="assets/vid/preview/sonata2_wez.mp4" data-full="assets/vid/sonata2_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Sonata">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/sonata3_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/sonata3_wez.webp" data-src="assets/vid/preview/sonata3_wez.mp4" data-full="assets/vid/sonata3_wez.mp4"></video>
         </div>
       </div>
 
       <!-- PARIS CORNER -->
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/moltencaramel_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/moltencaramel_wez.webp" data-src="assets/vid/preview/moltencaramel_wez.mp4" data-full="assets/vid/moltencaramel_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/datecaramel_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/datecaramel_wez.webp" data-src="assets/vid/preview/datecaramel_wez.mp4" data-full="assets/vid/datecaramel_wez.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="PARIS CORNER">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/INDO_WEZ.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/INDO_WEZ.webp" data-src="assets/vid/preview/INDO_WEZ.mp4" data-full="assets/vid/INDO_WEZ.mp4"></video>
         </div>
       </div>
 
       <!-- MAISON ASRAR -->
       <div class="client-item show" data-brand="MAISON ASRAR">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/Vanillavoyage_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/Vanillavoyage_wez.webp" data-src="assets/vid/preview/Vanillavoyage_wez.mp4" data-full="assets/vid/Vanillavoyage_wez.mp4"></video>
         </div>
       </div>
 
        <!-- MUSIC VID -->
       <div class="client-item show" data-brand="MUSIC VID">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/titli_wez.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/titli_wez.webp" data-src="assets/vid/preview/titli_wez.mp4" data-full="assets/vid/titli_wez.mp4"></video>
         </div>
       </div>
 
@@ -763,37 +771,37 @@
       <!-- Vulf Int -->
       <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/glasses.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/glasses.webp" data-src="assets/vid/preview/glasses.mp4" data-full="assets/vid/glasses.mp4"></video>
         </div>
       </div>
 
        <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/watch.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/watch.webp" data-src="assets/vid/preview/watch.mp4" data-full="assets/vid/watch.mp4"></video>
         </div>
       </div>
 
        <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/headphones.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/headphones.webp" data-src="assets/vid/preview/headphones.mp4" data-full="assets/vid/headphones.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/Archviz_room01_F.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/Archviz_room01_F.webp" data-src="assets/vid/preview/Archviz_room01_F.mp4" data-full="assets/vid/Archviz_room01_F.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/Archviz_room02_V2_F.mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/Archviz_room02_V2_F.webp" data-src="assets/vid/preview/Archviz_room02_V2_F.mp4" data-full="assets/vid/Archviz_room02_V2_F.mp4"></video>
         </div>
       </div>
 
       <div class="client-item show" data-brand="Vulf Int">
         <div class="video-card">
-          <video muted loop playsinline preload="metadata" data-src="assets/vid/DAA_GYM_FINALOUT (1).mp4"></video>
+          <video muted loop playsinline preload="none" poster="assets/vid/poster/DAA_GYM_FINALOUT_1.webp" data-src="assets/vid/preview/DAA_GYM_FINALOUT_1.mp4" data-full="assets/vid/DAA_GYM_FINALOUT (1).mp4"></video>
         </div>
       </div>
      
@@ -816,19 +824,19 @@
 
   <div class="video-grid">
     <div class="video-card">
-      <video muted loop playsinline preload="metadata" data-src="assets/vid/The chairlowres.mp4"></video>
+      <video muted loop playsinline preload="none" poster="assets/vid/poster/The_chairlowres.webp" data-src="assets/vid/preview/The_chairlowres.mp4" data-full="assets/vid/The chairlowres.mp4"></video>
     </div>
     <div class="video-card">
-      <video muted loop playsinline preload="metadata" data-src="assets/vid/The abandoned churchedit v4.mp4"></video>
+      <video muted loop playsinline preload="none" poster="assets/vid/poster/The_abandoned_churchedit_v4.webp" data-src="assets/vid/preview/The_abandoned_churchedit_v4.mp4" data-full="assets/vid/The abandoned churchedit v4.mp4"></video>
     </div>
     <div class="video-card">
-      <video muted loop playsinline preload="metadata" data-src="assets/vid/JIC_JTV_v1.mp4"></video>
+      <video muted loop playsinline preload="none" poster="assets/vid/poster/JIC_JTV_v1.webp" data-src="assets/vid/preview/JIC_JTV_v1.mp4" data-full="assets/vid/JIC_JTV_v1.mp4"></video>
     </div>
     <div class="video-card">
-      <video muted loop playsinline preload="metadata" data-src="assets/vid/Rough cut.mp4"></video>
+      <video muted loop playsinline preload="none" poster="assets/vid/poster/Rough_cut.webp" data-src="assets/vid/preview/Rough_cut.mp4" data-full="assets/vid/Rough cut.mp4"></video>
     </div>
     <div class="video-card">
-      <video muted loop playsinline preload="metadata" data-src="assets/vid/journeytonowhere.mp4"></video>
+      <video muted loop playsinline preload="none" poster="assets/vid/poster/journeytonowhere.webp" data-src="assets/vid/preview/journeytonowhere.mp4" data-full="assets/vid/journeytonowhere.mp4"></video>
     </div>
   </div>
 </section>
@@ -849,12 +857,12 @@
     </p>
 
     <div class="brands-grid">
-      <img src="assets/img/sony.png">
-      <img src="assets/img/amazon.png">
-      <img src="assets/img/TATA.png">
-      <img src="assets/img/SONATA.png">
-      <img src="assets/img/MOUVAL.png">
-      <img src="assets/img/HYPER.png">
+      <img src="assets/img/web/sony.webp" alt="Sony" loading="lazy" decoding="async">
+      <img src="assets/img/web/amazon.webp" alt="Amazon" loading="lazy" decoding="async">
+      <img src="assets/img/web/TATA.webp" alt="Tata Neu" loading="lazy" decoding="async">
+      <img src="assets/img/web/SONATA.webp" alt="Sonata" loading="lazy" decoding="async">
+      <img src="assets/img/web/MOUVAL.webp" alt="Mouval" loading="lazy" decoding="async">
+      <img src="assets/img/web/HYPER.webp" alt="Hyper" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -863,26 +871,26 @@
     <div class="section-title">FEATURE FILM VFX CREDS</div>
 
     <div class="movies-row">
-      <a href="https://www.imdb.com/title/tt27441481/" target="_blank">
-        <img src="assets/img/coolie.png">
+      <a href="https://www.imdb.com/title/tt27441481/" target="_blank" rel="noopener">
+        <img src="assets/img/web/coolie.webp" alt="Coolie" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt33037773/" target="_blank">
-        <img src="assets/img/SUMATHI VALAVU.png">
+      <a href="https://www.imdb.com/title/tt33037773/" target="_blank" rel="noopener">
+        <img src="assets/img/web/SUMATHI_VALAVU.webp" alt="Sumathi Valavu" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt33399641/" target="_blank">
-        <img src="assets/img/dheeram.png">
+      <a href="https://www.imdb.com/title/tt33399641/" target="_blank" rel="noopener">
+        <img src="assets/img/web/dheeram.webp" alt="Dheeram" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt28551273/" target="_blank">
-        <img src="assets/img/bhabhaba.png">
+      <a href="https://www.imdb.com/title/tt28551273/" target="_blank" rel="noopener">
+        <img src="assets/img/web/bhabhaba.webp" alt="Bha Bha Ba" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt33014579/" target="_blank">
-        <img src="assets/img/Pongala.png">
+      <a href="https://www.imdb.com/title/tt33014579/" target="_blank" rel="noopener">
+        <img src="assets/img/web/Pongala.webp" alt="Pongala" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt26258714/" target="_blank">
-        <img src="assets/img/mrx.png">
+      <a href="https://www.imdb.com/title/tt26258714/" target="_blank" rel="noopener">
+        <img src="assets/img/web/mrx.webp" alt="Mr. X" width="480" height="270" loading="lazy" decoding="async">
       </a>
-      <a href="https://www.imdb.com/title/tt33379543/" target="_blank">
-        <img src="assets/img/jananayagan.png">
+      <a href="https://www.imdb.com/title/tt33379543/" target="_blank" rel="noopener">
+        <img src="assets/img/web/jananayagan.webp" alt="Jana Nayagan" width="480" height="270" loading="lazy" decoding="async">
       </a>
     </div>
   </section>
@@ -995,11 +1003,16 @@ if (imageOverlay && focusImage) {
     /* Tilt Title */
     const title = document.getElementById('tiltTitle');
 
+    let tiltFrame = 0;
     document.addEventListener('mousemove', (e) => {
-      const x = (window.innerWidth / 2 - e.clientX) / 35;
-      const y = (window.innerHeight / 2 - e.clientY) / 35;
-      title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
+      if (tiltFrame) return;
+      tiltFrame = requestAnimationFrame(() => {
+        tiltFrame = 0;
+        const x = (window.innerWidth / 2 - e.clientX) / 35;
+        const y = (window.innerHeight / 2 - e.clientY) / 35;
+        title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      });
+    }, { passive: true });
 
     /* Formspree */
     const form = document.getElementById("contactForm");
@@ -1051,7 +1064,7 @@ if (imageOverlay && focusImage) {
           video.pause();
         }
       });
-    }, { rootMargin: "300px 0px", threshold: 0.1 });
+    }, { rootMargin: "200px 0px", threshold: 0.1 });
 
     lazyVideos.forEach(v => lazyVideoObserver.observe(v));
 
@@ -1059,7 +1072,7 @@ if (imageOverlay && focusImage) {
       card.addEventListener("click", () => {
 
         const v = card.querySelector("video");
-        focusVideo.src = v.dataset.src || v.src;
+        focusVideo.src = v.dataset.full || v.dataset.src || v.src;
 
         overlay.style.display = "flex";
         document.body.style.overflow = "hidden";
